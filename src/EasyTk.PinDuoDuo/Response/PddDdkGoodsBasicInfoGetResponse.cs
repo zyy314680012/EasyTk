@@ -2,13 +2,13 @@
 
 namespace EasyTk.PinDuoDuo.Response
 {
-    public class PddDdkGoodsBasicInfoGetResponse : BaseResponse
+    public class PddDdkGoodsBasicInfoGetResponse : BaseResponse<PddDdkGoodsBasicInfoGetResponse.PddDdkGoodsBasicInfoGetData>
     {
         /// <summary>
         /// response
         /// </summary>
         [JsonProperty("goods_basic_detail_response")]
-        public PddDdkGoodsBasicInfoGetData GoodsBasicDetailResponse { get; set; }
+        public override PddDdkGoodsBasicInfoGetData Data { get; set; }
 
         public class PddDdkGoodsBasicInfoGetData : BaseResponseData
         {

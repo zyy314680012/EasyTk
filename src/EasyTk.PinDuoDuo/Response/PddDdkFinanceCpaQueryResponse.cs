@@ -2,13 +2,13 @@
 
 namespace EasyTk.PinDuoDuo.Response
 {
-    public class PddDdkFinanceCpaQueryResponse : BaseResponse
+    public class PddDdkFinanceCpaQueryResponse : BaseResponse<PddDdkFinanceCpaQueryResponse.PddDdkFinanceCpaQueryData>
     {
         /// <summary>
         /// response
         /// </summary>
         [JsonProperty("finance_cpa_query_response")]
-        public PddDdkFinanceCpaQueryData FinanceCpaQueryResponse { get; set; }
+        public override PddDdkFinanceCpaQueryData Data { get; set; }
 
         public class PddDdkFinanceCpaQueryData : BaseResponseData
         {

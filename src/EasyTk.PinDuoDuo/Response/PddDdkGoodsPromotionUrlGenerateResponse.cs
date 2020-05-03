@@ -3,13 +3,13 @@ using Newtonsoft.Json;
 
 namespace EasyTk.PinDuoDuo.Response
 {
-    public class PddDdkGoodsPromotionUrlGenerateResponse : BaseResponse
+    public class PddDdkGoodsPromotionUrlGenerateResponse : BaseResponse<PddDdkGoodsPromotionUrlGenerateResponse.PddDdkGoodsPromotionUrlGenerateData>
     {
         /// <summary>
         /// response
         /// </summary>
         [JsonProperty("goods_promotion_url_generate_response")]
-        public PddDdkGoodsPromotionUrlGenerateData GoodsPromotionUrlGenerateResponse { get; set; }
+        public override PddDdkGoodsPromotionUrlGenerateData Data { get; set; }
 
         public class PddDdkGoodsPromotionUrlGenerateData : BaseResponseData
         {

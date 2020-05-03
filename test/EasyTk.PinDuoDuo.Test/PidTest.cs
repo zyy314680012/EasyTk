@@ -34,7 +34,7 @@ namespace EasyTk.PinDuoDuo.Test
         {
             var req = new PddDdkFinanceCpaQueryRequest
             {
-                DateQuery = DateTime.Today.ToString("yyyy-MM-dd")
+                //DateQuery = DateTime.Today.ToString("yyyy-MM-dd")
             };
             var resp = await Client.ExecuteAsync(req);
             var q = resp;

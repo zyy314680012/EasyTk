@@ -11,6 +11,8 @@ namespace EasyTk.PinDuoDuo.Test
 
         private readonly string _couponId = "A0045VC-530298869942224396";
 
+        private readonly long _themeId = 7607L;
+
         [Fact]
         public async void TestPddDdkCouponInfoQueryRequest()
         {
@@ -122,7 +124,7 @@ namespace EasyTk.PinDuoDuo.Test
             var req = new PddDdkMallUrlGenRequest
             {
                 MallId = _mallId,
-                Pid = Pid
+               // Pid = Pid
             };
             var resp = await Client.ExecuteAsync(req);
             var q = resp;
@@ -153,6 +155,74 @@ namespace EasyTk.PinDuoDuo.Test
             var req = new PddDdkResourceUrlGenRequest
             {
                 Pid = Pid
+            };
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async void TestPddDdkRpPromUrlGenerateRequest()
+        {
+            var req = new PddDdkRpPromUrlGenerateRequest
+            {
+                PIdList = new[] { Pid }
+            };
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async void TestPddDdkThemeListGetRequest()
+        {
+            var req = new PddDdkThemeListGetRequest
+            {
+
+            };
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async void TestPddDdkThemeGoodsSearchRequest()
+        {
+            var req = new PddDdkThemeGoodsSearchRequest
+            {
+                ThemeId = _themeId
+            };
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async void TestPddDdkThemePromUrlGenerateRequest()
+        {
+            var req = new PddDdkThemePromUrlGenerateRequest
+            {
+                ThemeIdList = new[] { _themeId },
+                Pid = Pid
+            };
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async void TestPddDdkTopGoodsListQueryRequest()
+        {
+            var req = new PddDdkTopGoodsListQueryRequest
+            {
+
+            };
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async void TestPddDdkWeAppQrCodeUrlGenRequest()
+        {
+            var req = new PddDdkWeAppQrCodeUrlGenRequest
+            {
+                GoodsIdList = new[] { _goodsId },
+                PId = Pid
             };
             var resp = await Client.ExecuteAsync(req);
             var q = resp;

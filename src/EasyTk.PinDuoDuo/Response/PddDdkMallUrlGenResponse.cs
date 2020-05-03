@@ -3,13 +3,13 @@ using Newtonsoft.Json;
 
 namespace EasyTk.PinDuoDuo.Response
 {
-    public class PddDdkMallUrlGenResponse : BaseResponse
+    public class PddDdkMallUrlGenResponse : BaseResponse<PddDdkMallUrlGenResponse.PddDdkMallUrlGenData>
     {
         /// <summary>
         /// mall_coupon_generate_url_response
         /// </summary>
         [JsonProperty("mall_coupon_generate_url_response")]
-        public PddDdkMallUrlGenData MallCouponGenerateUrlResponse { get; set; }
+        public override PddDdkMallUrlGenData Data { get; set; }
 
         public class PddDdkMallUrlGenData : BaseResponseData
         {

@@ -2,13 +2,13 @@
 
 namespace EasyTk.PinDuoDuo.Response
 {
-    public class PddDdkCouponInfoQueryResponse : BaseResponse
+    public class PddDdkCouponInfoQueryResponse : BaseResponse<PddDdkCouponInfoQueryResponse.PddDdkCouponInfoQueryData>
     {
         /// <summary>
         /// ddk_coupon_info_query
         /// </summary>
         [JsonProperty("ddk_coupon_info_query_response")]
-        public PddDdkCouponInfoQueryData DdkCouponInfoQueryResponse { get; set; }
+        public override PddDdkCouponInfoQueryData Data { get; set; }
 
 
         public class PddDdkCouponInfoQueryData : BaseResponseData
@@ -18,8 +18,6 @@ namespace EasyTk.PinDuoDuo.Response
             /// </summary>
             [JsonProperty("list")]
             public PddDdkCouponInfoQueryDataItem[] List { get; set; }
-
-
         }
 
         public class PddDdkCouponInfoQueryDataItem
