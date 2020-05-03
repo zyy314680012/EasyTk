@@ -45,5 +45,11 @@ namespace EasyTk.PinDuoDuo.Response.Partial
         /// </summary>
         [JsonProperty("we_app_web_view_url")]
         public string WeAppWebViewUrl { get; set; }
+
+        /// <summary>
+        /// 微信小程序链接
+        /// </summary>
+        [JsonProperty("we_app_page_path")]
+        public string WeAppPagePath { get; set; }
     }
 }
