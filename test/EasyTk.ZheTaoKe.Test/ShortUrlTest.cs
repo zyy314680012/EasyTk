@@ -56,5 +56,22 @@ namespace EasyTk.ZheTaoKe.Test
 
             var q = resp2;
         }
+
+        [Fact]
+        public async void TestShopConvertRequest()
+        {
+            foreach (var type in new []{0,1})
+            {
+                var req = new ShopConvertRequest
+                {
+                    SiteId = Pid.Split('_')[2],
+                    UserIds = ShopId.ToString(),
+                    AdZoneId = Pid.Split('_')[3],
+                    SignUrl = type
+                };
+                var resp = await Client.ExecuteAsync(req);
+                var q = resp;
+            }
+        }
     }
 }

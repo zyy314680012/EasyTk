@@ -12,6 +12,8 @@ namespace EasyTk.ZheTaoKe.Test
 
         public const string Tkl = "￥kg1H1omzton￥";//"￥nph21oNs488￥";
 
+        public const long ShopId = 2206967713953L;
+
         public BaseTest()
         {
             Client = new ZheTaoKeClient("32c117bcdf47426dbabd85d0f8741571", "19930");

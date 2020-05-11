@@ -23,42 +23,18 @@ namespace EasyTk.ZheTaoKe.Response
         [JsonProperty("model")]
         public string Model { get; set; }
 
-        public async Task<TbkTpwdCreateResponse> GetTklCreateResponse()
+        public async Task<TklCreateResponse> GetTklCreateResponse()
         {
             if (!string.IsNullOrEmpty(Model))
             {
-                return new TbkTpwdCreateResponse
-                {
-                    Body = string.Empty,
-                    Response = new TbkTpwdCreateResponseData
-                    {
-                        RequestId = string.Empty,
-                        Data = new TbkTpwdCreateResponseResult
-                        {
-                            Model = Model
-                        }
-                    }
-                };
+                return this;
             }
 
-            HttpResponseMessage response = null;
-            using (var client = HttpHelper.HttpClientFactory.CreateClient())
+            if (string.IsNullOrEmpty(Model) && !string.IsNullOrEmpty(Url))
             {
-                response = await client.GetAsync(Url);
+                return await ZheTaoKeClient.RequestAsync<TklCreateResponse>(Url);
             }
-
-            if (response != null && response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                if (!string.IsNullOrEmpty(content))
-                {
-                    var result = JsonConvert.DeserializeObject<TbkTpwdCreateResponse>(content);
-                    result.Body = content;
-                    return result;
-                }
-            }
-
-            return default;
+            return null;
         }
 
         public class TbkTpwdCreateResponse : BaseResponse
