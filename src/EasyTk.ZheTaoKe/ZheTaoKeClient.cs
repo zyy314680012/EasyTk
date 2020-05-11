@@ -74,7 +74,7 @@ namespace EasyTk.ZheTaoKe
             HttpResponseMessage response = null;
             using (var client = HttpHelper.HttpClientFactory.CreateClient())
             {
-                client.Timeout = TimeSpan.FromSeconds(5);
+                // client.Timeout = TimeSpan.FromSeconds(5);
                 if (method == HttpMethod.Post)
                 {
                     if (requestData == null)

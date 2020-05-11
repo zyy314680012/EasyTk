@@ -1,6 +1,5 @@
 ﻿using EasyTk.Core;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace EasyTk.ZheTaoKe.Response
 {

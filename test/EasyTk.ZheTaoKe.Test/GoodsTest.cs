@@ -99,5 +99,64 @@ namespace EasyTk.ZheTaoKe.Test
             var resp = await Client.ExecuteAsync(req);
             var q = resp;
         }
+
+        [Fact]
+        public async void TestApiYongJinRequest()
+        {
+            var req = new ApiYongJinRequest();
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async void TestApiDongDongRequest()
+        {
+            var req = new ApiDongDongRequest { };
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async void TestApiShiXiaoRequest()
+        {
+            var req = new ApiShiXiaoRequest();
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async void TestApiGuanJianCiRequest()
+        {
+            var req = new ApiGuanJianCiRequest { };
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async void TestApiSuggestRequest()
+        {
+            var req = new ApiSuggestRequest
+            {
+                Content = "女"
+            };
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async void TestApiLunBoRequest()
+        {
+            var req = new ApiLunBoRequest { };
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async void TestApiLiWuZhuanTiRequest()
+        {
+            var req = new ApiLiWuZhuanTiRequest { };
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
     }
 }
