@@ -70,9 +70,36 @@ namespace EasyTk.ZheTaoKe.Test
                     SignUrl = type
                 };
                 var resp = await Client.ExecuteAsync(req);
-                var resp2 = resp.GetShopConvertResponse();
+                var resp2 = await resp.GetShopConvertResponse();
 
                 var q = resp2;
+            }
+        }
+
+        [Fact]
+        public async void TestActivityRequest()
+        {
+            var req = new ActivityRequest
+            {
+
+            };
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async void TestActivityLinkGetRequest()
+        {
+            foreach (var id in new[] { "1578633819064", "1583739244162" })
+            {
+                var req = new ActivityLinkGetRequest
+                {
+                    SiteId = Pid.Split('_')[2],
+                    AdZoneId = Pid.Split('_')[3],
+                    PromotionSceneId = id
+                };
+                var resp = await Client.ExecuteAsync(req);
+                var q = resp;
             }
         }
     }

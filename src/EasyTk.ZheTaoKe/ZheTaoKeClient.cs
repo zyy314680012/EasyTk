@@ -59,7 +59,7 @@ namespace EasyTk.ZheTaoKe
             return await ExecuteZheTaoKeAsync(baseRequest, 1);
         }
 
-        private async Task<TResponse> ExecuteZheTaoKeAsync<TResponse>(BaseRequest<TResponse> baseRequest, int round) where TResponse : IResponse
+        private async Task<TResponse> ExecuteZheTaoKeAsync<TResponse>(BaseRequest<TResponse> baseRequest, int round, string requestData = null) where TResponse : IResponse
         {
             var method = baseRequest.GetMethod();
             var oldParameters = baseRequest.GetParametersNameAndValue();
@@ -77,14 +77,22 @@ namespace EasyTk.ZheTaoKe
                 client.Timeout = TimeSpan.FromSeconds(5);
                 if (method == HttpMethod.Post)
                 {
-                    var post = new StringContent(string.Join("&", parameters.Select(p => $"{p.Key}={p.Value}")), Encoding.UTF8);
+                    if (requestData == null)
+                    {
+                        requestData = string.Join("&", parameters.Select(p => $"{p.Key}={p.Value}"));
+                    }
+                    var post = new StringContent(requestData, Encoding.UTF8);
                     response = await client.PostAsync(baseRequest.GetApiUrl(), post);
 
                 }
                 else if (method == HttpMethod.Get)
                 {
-                    var query = string.Join("&", parameters.Select(p => $"{p.Key}={p.Value}"));
-                    response = await client.GetAsync(baseRequest.GetApiUrl() + "?" + query);
+                    if (requestData == null)
+                    {
+                        requestData = string.Join("&", parameters.Select(p => $"{p.Key}={p.Value}"));
+                    }
+                    // var query = requestData;
+                    response = await client.GetAsync(baseRequest.GetApiUrl() + "?" + requestData);
                 }
             }
 
@@ -111,7 +119,7 @@ namespace EasyTk.ZheTaoKe
                     throw new ArgumentException("接口全部请求异常");
                 }
 
-                return await ExecuteZheTaoKeAsync(baseRequest, round + 1);
+                return await ExecuteZheTaoKeAsync(baseRequest, round + 1, requestData);
             }
             return default;
         }
