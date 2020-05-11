@@ -56,6 +56,11 @@ namespace EasyTk.ZheTaoKe
                 baseRequest.Sid = _sid;
             }
 
+            return await ExecuteZheTaoKeAsync(baseRequest, 1);
+        }
+
+        private async Task<TResponse> ExecuteZheTaoKeAsync<TResponse>(BaseRequest<TResponse> baseRequest, int round) where TResponse : IResponse
+        {
             var method = baseRequest.GetMethod();
             var oldParameters = baseRequest.GetParametersNameAndValue();
 
@@ -69,6 +74,7 @@ namespace EasyTk.ZheTaoKe
             HttpResponseMessage response = null;
             using (var client = HttpHelper.HttpClientFactory.CreateClient())
             {
+                client.Timeout = TimeSpan.FromSeconds(5);
                 if (method == HttpMethod.Post)
                 {
                     var post = new StringContent(string.Join("&", parameters.Select(p => $"{p.Key}={p.Value}")), Encoding.UTF8);
@@ -82,7 +88,12 @@ namespace EasyTk.ZheTaoKe
                 }
             }
 
-            if (response != null && response.IsSuccessStatusCode)
+            if (response == null)
+            {
+                throw new HttpRequestException("接口请求异常");
+            }
+
+            if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
                 if (!string.IsNullOrEmpty(content))
@@ -91,6 +102,16 @@ namespace EasyTk.ZheTaoKe
                     result.Body = content;
                     return result;
                 }
+            }
+            else
+            {
+                var newApiUrl = baseRequest.GetNextApiUrl(out var total);
+                if (round > total)
+                {
+                    throw new ArgumentException("接口全部请求异常");
+                }
+
+                return await ExecuteZheTaoKeAsync(baseRequest, round + 1);
             }
             return default;
         }
