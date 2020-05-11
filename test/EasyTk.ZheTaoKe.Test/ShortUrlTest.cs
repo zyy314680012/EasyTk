@@ -60,7 +60,7 @@ namespace EasyTk.ZheTaoKe.Test
         [Fact]
         public async void TestShopConvertRequest()
         {
-            foreach (var type in new []{0,1})
+            foreach (var type in new[] { 0, 1 })
             {
                 var req = new ShopConvertRequest
                 {
@@ -70,7 +70,9 @@ namespace EasyTk.ZheTaoKe.Test
                     SignUrl = type
                 };
                 var resp = await Client.ExecuteAsync(req);
-                var q = resp;
+                var resp2 = resp.GetShopConvertResponse();
+
+                var q = resp2;
             }
         }
     }
