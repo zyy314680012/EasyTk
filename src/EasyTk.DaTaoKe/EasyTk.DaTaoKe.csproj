@@ -6,6 +6,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\EasyTk.DaTaoKe.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\EasyTk.Core\EasyTk.Core.csproj" />
     <ProjectReference Include="..\EasyTk\EasyTk.csproj" />

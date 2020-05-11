@@ -1,0 +1,1800 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasyTk.DaTaoKe</name>
+    </assembly>
+    <members>
+        <member name="M:EasyTk.DaTaoKe.DaTaoKeClient.MakeSign(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            生成签名
+            </summary>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ActivityGoodsListRequest.PageId">
+            <summary>
+            pageId	分页id	是	String	默认为1，支持传统的页码分页方式和scroll_id分页方式，根据用户自身需求传入值。示例1：商品入库，则首次传入1，后续传入接口第一次返回的pageid，接口将持续返回符合条件的完整商品列表，该方式可以避免入库商品重复；示例2：根据pagesize和totalNum计算出总页数，按照需求返回指定页的商品（该方式可能在临近页取到重复商品）
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ActivityGoodsListRequest.PageSize">
+            <summary>
+            pageSize	每页条数	否	Number	默认为100，大于100按100处理
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ActivityGoodsListRequest.ActivityId">
+            <summary>
+            activityId	活动id	是	Number	通过热门活动API获取的活动id
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ActivityGoodsListRequest.Cid">
+            <summary>
+            cid	大淘客一级分类ID	否	Number	1 -女装，2 -母婴，3 -美妆，4 -居家日用，5 -鞋品，6 -美食，7 -文娱车品，8 -数码家电，9 -男装，10 -内衣，11 -箱包，12 -配饰，13 -户外运动，14 -家装家纺
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ActivityGoodsListRequest.SubCid">
+            <summary>
+            subcid	大淘客二级分类ID	否	Number	可通过超级分类接口获取二级分类id，当同时传入一级分类id和二级分类id时，以一级分类id为准
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ActivityGoodsListRequest.FreeShipRemoteDistrict">
+            <summary>
+            freeshipRemoteDistrict	偏远地区包邮	否	Number	1.是，0.否
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.BaseRequest`1.AppKey">
+            <summary> 
+            appKey 唯一验证	是	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.BaseRequest`1.Version">
+            <summary> 
+            version API接口版本号	是	String	当前版本： v1.2.2
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.DdqGoodsListRequest.RoundTime">
+            <summary>
+            roundTime	场次时间	否	String	默认为当前场次，场次时间输入方式：yyyy-mm-dd hh:mm:ss
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetBrandListRequest.PageId">
+            <summary>
+            pageId	页码	是	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetBrandListRequest.PageSize">
+            <summary>
+            pageSize	每页条数	否	Number	默认为20，最大值100
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetCollectionListRequest.PageSize">
+            <summary>
+            pageSize	每页条数	否	Number	默认为100，最大值200，若小于10，则按10条处理，每页条数仅支持输入10,50,100,200
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetCollectionListRequest.PageId">
+            <summary>
+            pageId	分页id	是	String	默认为1，支持传统的页码分页方式和scroll_id分页方式，根据用户自身需求传入值。示例1：商品入库，则首次传入1，后续传入接口返回的pageid，接口将持续返回符合条件的完整商品列表，该方式可以避免入口商品重复；示例2：根据pagesize和totalNum计算出总页数，按照需求返回指定页的商品（该方式可能在临近页取到重复商品）
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetCollectionListRequest.Cid">
+            <summary>
+            cid	商品在大淘客的分类id	是	String	大淘客的一级分类id，如果需要传多个，以英文逗号相隔，如：”1,2,3”。当一级类目id和二级类目id同时传入时，会自动忽略二级类目id，1 -女装，2 -母婴，3 -美妆，4 -居家日用，5 -鞋品，6 -美食，7 -文娱车品，8 -数码家电，9 -男装，10 -内衣，11 -箱包，12 -配饰，13 -户外运动，14 -家装家纺
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetCollectionListRequest.TrailerType">
+            <summary>
+            trailerType	是否返回预告商品	否	Number	（如果为是1，则返回全部商品（包含在线商品），为0只返回在线商品）默认返回全部商品
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetCollectionListRequest.Sort">
+            <summary>
+            sort	排序字段	否	String	默认为0，0-综合排序，1-商品上架时间从高到低，2-销量从高到低，3-领券量从高到低，4-佣金比例从高到低，5-价格（券后价）从高到低，6-价格（券后价）从低到高
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetCollectionListRequest.CollectionTimeOrder">
+            <summary>
+            collectionTimeOrder	加入收藏时间	否	Number
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.PageSize">
+            <summary>
+            pageSize	每页条数	是	Number	默认为100，最大值200，若小于10，则按10条处理，每页条数仅支持输入10,50,100,200
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.PageId">
+            <summary>
+            pageId	分页id	是	String	默认为1，支持传统的页码分页方式和scroll_id分页方式，根据用户自身需求传入值。示例1：商品入库，则首次传入1，后续传入接口返回的pageid，接口将持续返回符合条件的完整商品列表，该方式可以避免入口商品重复；示例2：根据pagesize和totalNum计算出总页数，按照需求返回指定页的商品（该方式可能在临近页取到重复商品）
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.KeyWords">
+            <summary>
+            keyWords	关键词搜索	是	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.Cids">
+            <summary>
+            cids	一级类目Id	否	String	大淘客的一级分类id，如果需要传多个，以英文逗号相隔，如：”1,2,3”。当一级类目id和二级类目id同时传入时，会自动忽略二级类目id，一级分类id请求详情：1 -女装，2 -母婴，3 -美妆，4 -居家日用，5 -鞋品，6 -美食，7 -文娱车品，8 -数码家电，9 -男装，10 -内衣，11 -箱包，12 -配饰，13 -户外运动，14 -家装家纺
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.SubCid">
+            <summary>
+            subcid	二级类目Id	否	Number	大淘客的二级类目id，通过超级分类API获取。仅允许传一个二级id，当一级类目id和二级类目id同时传入时，会自动忽略二级类目id
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.JuHuaSuan">
+            <summary>
+            juHuaSuan	是否聚划算	否	Number	1-聚划算商品，0-非聚划算商品，不填默认为所有商品
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.TaoQiangGou">
+            <summary>
+            taoQiangGou	是否淘抢购	否	Number	1-淘抢购商品，0-非淘抢购商品，不填默认为所有商品
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.TMall">
+            <summary>
+            tmall	是否天猫商品	否	Number	1-天猫商品，0-非天猫商品，不填默认为所有商品
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.TChaoShi">
+            <summary>
+            tchaoshi	是否天猫超市商品	否	Number	1-天猫超市商品，0-非天猫超市商品，不填默认为所有商品
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.GoldSeller">
+            <summary>
+            goldSeller	是否金牌卖家	否	Number	1-金牌卖家，0-非金牌卖家，不填默认为所有店铺
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.HaiTao">
+            <summary>
+            haitao	是否海淘商品	否	Number	1-海淘商品，0-非海淘商品，不填默认为所有商品
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.Brand">
+            <summary>
+            brand	是否品牌商品	否	Number	1-品牌商品，0-非品牌商品，不填默认为所有商品
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.BrandIds">
+            <summary>
+            brandIds	品牌id	否	String	当brand传入0时，再传入brandIds将获取不到结果。品牌id可以传多个，以英文逗号隔开，如：”345,321,323”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.PriceLowerLimit">
+            <summary>
+            priceLowerLimit	价格（券后价）下限	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.PriceUpperLimit">
+            <summary>
+            priceUpperLimit	价格（券后价）上限	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.CouponPriceLowerLimit">
+            <summary>
+            couponPriceLowerLimit	最低优惠券面额	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.CommissionRateLowerLimit">
+            <summary>
+            commissionRateLowerLimit	最低佣金比率	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.MonthSalesLowerLimit">
+            <summary>
+            monthSalesLowerLimit	最低月销量	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.Sort">
+            <summary>
+            sort	排序字段	否	String	默认为0，0-综合排序，1-商品上架时间从新到旧，2-销量从高到低，3-领券量从高到低，4-佣金比例从高到低，5-价格（券后价）从高到低，6-价格（券后价）从低到高
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetDtkSearchGoodsRequest.FreeShipRemoteDistrict">
+            <summary>
+            freeshipRemoteDistrict	偏远地区包邮	否	Number	1.是，0.否
+            </summary>
+        </member>
+        <member name="T:EasyTk.DaTaoKe.Request.GetGoodsDetailsRequest">
+            <summary>
+            单品详情
+            通过商品id或淘宝id查询单个商品的详细信息，可使用返回的数据构建单品详情页，向用户提供详情的商品信息
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsDetailsRequest.Id">
+            <summary> 
+            id 商品id	是	Number	大淘客商品id，请求时id或goodsId必填其中一个，若均填写，将优先查找当前单品id
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsDetailsRequest.GoodsId">
+            <summary> 
+            goodsId 淘宝商品id	否	String	id或goodsId必填其中一个，若均填写，将优先查找当前单品id
+            </summary>
+        </member>
+        <member name="T:EasyTk.DaTaoKe.Request.GetGoodsListRequest">
+            <summary>
+            商品列表
+            构建商品库，数据入库，建议您首次获取全量商品时调用该接口，若您需要更新商品库中的商品数据（如销量、领券量等）请使用商品更新接口，若您需要获取更多增量商品请通过定时拉取接口获取新的商品信息，若您需要在库中删除失效商品，请使用失效商品接口进行查询后删除
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.PageSize">
+            <summary> 
+            pageSize 每页条数	否	Number	默认为100，最大值200，若小于10，则按10条处理，每页条数仅支持输入10,50,100,200
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.PageId">
+            <summary> 
+            pageId 分页id	是	String	默认为1，支持传统的页码分页方式和scroll_id分页方式，根据用户自身需求传入值。示例1：商品入库，则首次传入1，后续传入接口返回的pageid，接口将持续返回符合条件的完整商品列表，该方式可以避免入口商品重复；示例2：根据pagesize和totalNum计算出总页数，按照需求返回指定页的商品（该方式可能在临近页取到重复商品）
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.Sort">
+            <summary> 
+            sort 排序方式	否	String	默认为0，0-综合排序，1-商品上架时间从高到低，2-销量从高到低，3-领券量从高到低，4-佣金比例从高到低，5-价格（券后价）从高到低，6-价格（券后价）从低到高
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.Cids">
+            <summary> 
+            cids 一级类目id	否	String	大淘客的一级分类id，如果需要传多个，以英文逗号相隔，如：”1,2,3”。当一级类目id和二级类目id同时传入时，会自动忽略二级类目id
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.SubCid">
+            <summary> 
+            subcid 二级类目id	否	Number	大淘客的二级类目id，通过超级分类API获取。仅允许传一个二级id，当一级类目id和二级类目id同时传入时，会自动忽略二级类目id
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.SpecialId">
+            <summary> 
+            specialId 商品卖点	否	Number	1.拍多件活动；2.多买多送；3.限量抢购；4.额外满减；6.买商品礼赠
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.JuHuaSuan">
+            <summary> 
+            juHuaSuan 是否聚划算	否	Number	1-聚划算商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.TaoQiangGou">
+            <summary> 
+            taoQiangGou 是否淘抢购	否	Number	1-淘抢购商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.TMall">
+            <summary> 
+            tmall 是否天猫商品	否	Number	1-天猫商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.TChaoShi">
+            <summary> 
+            tchaoshi 是否天猫超市商品	否	Number	1-天猫超市商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.GoldSeller">
+            <summary> 
+            goldSeller 是否金牌卖家	否	Number	1-金牌卖家，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.HaiTao">
+            <summary> 
+            haitao 是否海淘商品	否	Number	1-海淘商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.Pre">
+            <summary> 
+            pre 是否预告商品	否	Number	1-预告商品，0-非预告商品
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.Brand">
+            <summary> 
+            brand 是否品牌商品	否	Number	1-品牌商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.BrandIds">
+            <summary> 
+            brandIds 品牌id	否	String	当brand传入0时，再传入brandIds将获取不到结果。品牌id可以传多个，以英文逗号隔开，如：”345,321,323”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.PriceLowerLimit">
+            <summary> 
+            priceLowerLimit 价格（券后价）下限	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.PriceUpperLimit">
+            <summary> 
+            priceUpperLimit 价格（券后价）上限	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.CouponPriceLowerLimit">
+            <summary> 
+            couponPriceLowerLimit 最低优惠券面额	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.CommissionRateLowerLimit">
+            <summary> 
+            commissionRateLowerLimit 最低佣金比率	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.MonthSalesLowerLimit">
+            <summary> 
+            monthSalesLowerLimit 最低月销量	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetGoodsListRequest.FreeShipRemoteDistrict">
+            <summary> 
+            freeshipRemoteDistrict 偏远地区包邮	否	Number	1.是，0.否
+            </summary>
+        </member>
+        <member name="T:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest">
+            <summary>
+            商品更新
+            商品的部分信息会在商品售卖及推广过程中有所变更，您可以通过该接口对销量、领券量等数据进行实时更新
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.PageSize">
+            <summary>
+            pageSize	每页条数	是	Number	默认为100，最大值200，若小于10，则按10条处理，每页条数仅支持输入10,50,100,200
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.PageId">
+            <summary>
+            pageId	分页id	是	String	默认为1，支持传统的页码分页方式和scroll_id分页方式，根据用户自身需求传入值。示例1：商品入库，则首次传入1，后续传入接口返回的pageid，接口将持续返回符合条件的完整商品列表，该方式可以避免入口商品重复；示例2：根据pagesize和totalNum计算出总页数，按照需求返回指定页的商品（该方式可能在临近页取到重复商品）
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.StartTime">
+            <summary>
+            startTime	商品上架开始时间	否	Date	请求格式：yyyy-MM-dd HH:mm:ss
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.EndTime">
+            <summary>
+            endTime	商品上架结束时间	否	Date	请求格式：yyyy-MM-dd HH:mm:ss
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.Cids">
+            <summary>
+            cids	一级类目Id	否	String	大淘客的一级分类id，如果需要传多个，以英文逗号相隔，如：”1,2,3”。当一级类目id和二级类目id同时传入时，会自动忽略二级类目id，1 -女装，2 -母婴，3 -美妆，4 -居家日用，5 -鞋品，6 -美食，7 -文娱车品，8 -数码家电，9 -男装，10 -内衣，11 -箱包，12 -配饰，13 -户外运动，14 -家装家纺
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.SubCid">
+            <summary>
+            subcid	二级类目Id	否	Number	大淘客的二级类目id，通过超级分类API获取。仅允许传一个二级id，当一级类目id和二级类目id同时传入时，会自动忽略二级类目id
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.JuHuaSuan">
+            <summary>
+            juHuaSuan	是否聚划算	否	Number	1-聚划算商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.TaoQiangGou">
+            <summary>
+            taoQiangGou	是否淘抢购	否	Number	1-淘抢购商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.TMall">
+            <summary>
+            tmall	是否天猫商品	否	Number	1-天猫商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.TChaoShi">
+            <summary>
+            tchaoshi	是否天猫超市商品	否	Number	1-天猫超市商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.GoldSeller">
+            <summary>
+            goldSeller	是否金牌卖家	否	Number	1-金牌卖家，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.HaiTao">
+            <summary>
+            haitao	是否海淘商品	否	Number	1-海淘商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.Brand">
+            <summary>
+            brand	是否品牌商品	否	Number	1-品牌商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.BrandIds">
+            <summary>
+            brandIds	品牌id	否	String	当brand传入0时，再传入brandIds将获取不到结果。品牌id可以传多个，以英文逗号隔开，如：”345,321,323”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.PriceLowerLimit">
+            <summary>
+            priceLowerLimit	价格（券后价）下限	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.PriceUpperLimit">
+            <summary>
+            priceUpperLimit	价格（券后价）上限	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.CouponPriceLowerLimit">
+            <summary>
+            couponPriceLowerLimit	最低优惠券面额	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.CommissionRateLowerLimit">
+            <summary>
+            commissionRateLowerLimit	最低佣金比率	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.MonthSalesLowerLimit">
+            <summary>
+            monthSalesLowerLimit	最低月销量	否	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetNewestGoodsRequest.Sort">
+            <summary>
+            sort	排序字段	否	String	默认为0，0-综合排序，1-商品上架时间从新到旧，2-销量从高到低，3-领券量从高到低，4-佣金比例从高到低，5-价格（券后价）从高到低，6-价格（券后价）从低到高
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetOwnerGoodsRequest.PageSize">
+            <summary>
+            pageSize	每页条数	是	Number	默认为100，最大值200，若小于10，则按10条处理，每页条数仅支持输入10,50,100,200
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetOwnerGoodsRequest.PageId">
+            <summary>
+            pageId	分页id	是	String	默认为1，支持传统的页码分页方式和scroll_id分页方式，根据用户自身需求传入值。示例1：商品入库，则首次传入1，后续传入接口返回的pageid，接口将持续返回符合条件的完整商品列表，该方式可以避免入口商品重复；示例2：根据pagesize和totalNum计算出总页数，按照需求返回指定页的商品（该方式可能在临近页取到重复商品）
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetOwnerGoodsRequest.Online">
+            <summary>
+            online	是否下架	否	Number	默认为1，1-未下架商品，0-已下架商品
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetOwnerGoodsRequest.StartTime">
+            <summary>
+            startTime	商品提交开始时间	否	Date	请求格式：yyyy-MM-dd HH:mm:ss
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetOwnerGoodsRequest.EndTime">
+            <summary>
+            endTime	商品上架结束时间	否	Date	请求格式：yyyy-MM-dd HH:mm:ss
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetOwnerGoodsRequest.Sort">
+            <summary>
+            sort	排序字段	否	String	默认为0，0-综合排序，1-商品上架时间从新到旧，2-销量从高到低，3-领券量从高到低，4-佣金比例从高到低，5-价格（券后价）从高到低，6-价格（券后价）从低到高
+            </summary>
+        </member>
+        <member name="T:EasyTk.DaTaoKe.Request.GetPrivilegeLinkRequest">
+            <summary>
+            高效转链
+            高效转链接口将您的pid信息、商品地址及优惠券信息进行转链，转链后的结果可进行推广或完成订单，接口支持授权淘宝账号下所有PID进行转链。由于接口特殊性，请适量缓存已转链的链接，以达最佳效率
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetPrivilegeLinkRequest.GoodsId">
+            <summary>
+            goodsId	淘宝商品id	是	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetPrivilegeLinkRequest.CouponId">
+            <summary>
+            couponId	优惠券ID	否	String	商品的优惠券ID，一个商品在联盟可能有多个优惠券，可通过填写该参数的方式选择使用的优惠券，请确认优惠券ID正确，否则无法正常跳转
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetPrivilegeLinkRequest.Pid">
+            <summary>
+            pid	推广位ID	否	string	用户可自由填写当前大淘客账号下已授权淘宝账号的任一pid，若未填写，则默认使用创建应用时绑定的pid
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetPrivilegeLinkRequest.ChannelId">
+            <summary>
+            channelId	渠道id	否	string	用于代理体系，渠道id将会和传入的pid进行验证，验证通过将正常转链，请确认从私域管理系统中提取的渠道id是否正确
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetRankingListRequestNormal.RankType">
+            <summary>
+            rankType	榜单类型	是	Number	1.实时榜 2.全天榜 3.热推榜 4.复购榜 5.热词飙升榜 6.热词排行榜 7.综合热搜榜
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetRankingListRequestNormal.Cid">
+            <summary>
+            cid	大淘客一级类目id	否	Number	仅对实时榜单、全天榜单有效
+            </summary>
+        </member>
+        <member name="T:EasyTk.DaTaoKe.Request.GetRankingListRequestHotWorldRise">
+            <summary>
+            热刺飙升
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetRankingListRequestHotWorldRise.RankType">
+            <summary>
+            rankType	榜单类型	是	Number	1.实时榜 2.全天榜 3.热推榜 4.复购榜 5.热词飙升榜 6.热词排行榜 7.综合热搜榜
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetRankingListRequestHotWorldRise.Cid">
+            <summary>
+            cid	大淘客一级类目id	否	Number	仅对实时榜单、全天榜单有效
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetRankingListRequestHotWorld.RankType">
+            <summary>
+            rankType	榜单类型	是	Number	1.实时榜 2.全天榜 3.热推榜 4.复购榜 5.热词飙升榜 6.热词排行榜 7.综合热搜榜
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetRankingListRequestHotWorld.Cid">
+            <summary>
+            cid	大淘客一级类目id	否	Number	仅对实时榜单、全天榜单有效
+            </summary>
+        </member>
+        <member name="T:EasyTk.DaTaoKe.Request.GetStaleGoodsByTimeRequest">
+            <summary>
+            失效商品
+            根据指定时间段返回该时间段内（开始时间和结束时间须为当日）因任何原因在大淘客下架商品，建议您每10分钟更新一次
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetStaleGoodsByTimeRequest.PageSize">
+            <summary> 
+            pageSize 每页条数	否	Number	默认为100，最大值200，若小于10，则按10条处理，每页条数仅支持输入10,50,100,200
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetStaleGoodsByTimeRequest.PageId">
+            <summary> 
+            pageId 分页id	是	String	默认为1，支持传统的页码分页方式和scroll_id分页方式，根据用户自身需求传入值。示例1：商品入库，则首次传入1，后续传入接口返回的pageid，接口将持续返回符合条件的完整商品列表，该方式可以避免入口商品重复；示例2：根据pagesize和totalNum计算出总页数，按照需求返回指定页的商品（该方式可能在临近页取到重复商品）
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetStaleGoodsByTimeRequest.StartTime">
+            <summary> 
+            startTime 开始时间	否	String	默认为yyyy-mm-dd hh:mm:ss，商品下架的时间大于等于开始时间，开始时间需要在当日
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetStaleGoodsByTimeRequest.EndTime">
+            <summary> 
+            endTime 结束时间	否	String	默认为请求的时间，商品下架的时间小于等于结束时间，结束时间需要在当日
+            </summary>
+        </member>
+        <member name="T:EasyTk.DaTaoKe.Request.GetSuperCategoryRequest">
+            <summary>
+            超级分类
+            可查询大淘客所有的一级分类和二级分类，且提供一级分类图标及二级分类图标素材，协助您完善商品分类筛选功能的搭建
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbServiceRequest.PageNo">
+            <summary>
+            pageNo	第几页	是	Number	默认1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbServiceRequest.PageSize">
+            <summary>
+            pageSize	每页条数	是	Number	页大小， 默认20，范围值1~100
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbServiceRequest.KeyWords">
+            <summary>
+            keyWords	查询词	是	String	查询词不能为空
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbServiceRequest.Sort">
+            <summary>
+            sort	排序	否	String	排序指标：销量（total_sales），淘客佣金比率（tk_rate）， 累计推广量（tk_total_sales），总支出佣金（tk_total_commi），价格（price）,排序方式：排序_des（降序），排序_asc（升序）,示例：升序查询销量：total_sales_asc
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbServiceRequest.Source">
+            <summary>
+            source	是否商城商品	否	Number	设置为1表示该商品是属于淘宝商城商品，设置为非1或不设置表示不判断这个属性（和overseas字段冲突，若已请求source，请勿再请求overseas）
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbServiceRequest.Overseas">
+            <summary>
+            overseas	是否海外商品	否	Number	是否海外商品，设置为1表示该商品是属于海外商品，设置为非1或不设置表示不判断这个属性（和source字段冲突，若已请求overseas，请勿再请求source）
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbServiceRequest.EndPrice">
+            <summary>
+            endPrice	折扣价范围上限	否	Number	单位：元
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbServiceRequest.StartPrice">
+            <summary>
+            startPrice	折扣价范围下限	否	Number	单位：元
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbServiceRequest.StartTkRate">
+            <summary>
+            startTkRate	媒体淘客佣金比率下限	否	Number	如：1234表示12.34%
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbServiceRequest.EndTkRate">
+            <summary>
+            endTkRate	商品筛选-淘客佣金比率上限	否	Number	如：1234表示12.34%
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbServiceRequest.HasCoupon">
+            <summary>
+            hasCoupon	是否有优惠券	否	Boolean	设置为true表示该商品有优惠券，设置为false或不设置表示不判断这个属性
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbTopicListRequest.PageId">
+            <summary>
+            pageId	分页id	是	String	支持传统的页码分页方式
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbTopicListRequest.PageSize">
+            <summary>
+            pageSize	每页条数	否	Number	默认为20
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbTopicListRequest.Type">
+            <summary>
+            type	端口类型	否	Number	输出的端口类型：0.全部（默认），1.PC，2.无线
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.GetTbTopicListRequest.ChannelId">
+            <summary>
+            channelID	渠道ID	否	Number	阿里妈妈上申请的渠道id
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ListSimilerGoodsByOpenRequest.Id">
+            <summary>
+            id	大淘客的商品id	是	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ListSimilerGoodsByOpenRequest.Size">
+            <summary>
+            size	每页条数	否	Number	默认10 ， 最大值100
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ListSuperGoodsRequest.Type">
+            <summary>
+            type	搜索类型	是	Number	0-综合结果，1-大淘客商品，2-联盟商品
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ListSuperGoodsRequest.PageId">
+            <summary>
+            pageId	页码	是	Number	请求的页码，默认参数1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ListSuperGoodsRequest.PageSize">
+            <summary>
+            pageSize	每页条数	是	Number	默认为20，最大值100
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ListSuperGoodsRequest.KeyWords">
+            <summary>
+            keyWords	关键词搜索	是	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ListSuperGoodsRequest.TMall">
+            <summary>
+            tmall	是否天猫商品	否	Number	1-天猫商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ListSuperGoodsRequest.HaiTao">
+            <summary>
+            haitao	是否海淘商品	否	Number	1-海淘商品，0-所有商品，不填默认为0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.ListSuperGoodsRequest.Sort">
+            <summary>
+            sort	排序字段	否	String	排序字段信息 销量（total_sales） 价格（price），排序_des（降序），排序_asc（升序）
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.NineOpGoodsListRequest.PageSize">
+            <summary>
+            pageSize	每页条数	是	Number	默认为20，最大值100
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.NineOpGoodsListRequest.PageId">
+            <summary>
+            pageId	分页id	是	String	常规分页方式，请直接传入对应页码
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.NineOpGoodsListRequest.NineCid">
+            <summary>
+            nineCid	精选类目Id	是	String	9.9精选的类目id，分类id请求详情：-1-精选，1 -居家百货，2 -美食，3 -服饰，4 -配饰，5 -美妆，6 -内衣，7 -母婴，8 -箱包，9 -数码配件，10 -文娱车品
+            </summary>
+        </member>
+        <member name="T:EasyTk.DaTaoKe.Request.PullGoodsByTimeRequest">
+            <summary>
+            定时拉取
+            首次通过商品列表获取商品后，后续商品即可使用定时拉取接口进行增量更新，开始时间建议为您上次调用的时间，结束时间为当前时间，可以无重复拉取全库商品
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.PullGoodsByTimeRequest.PageSize">
+            <summary> 
+            pageSize 每页条数	否	Number	默认为100，最大值200，若小于10，则按10条处理，每页条数仅支持输入10,50,100,200
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.PullGoodsByTimeRequest.PageId">
+            <summary> 
+            pageId 分页id	是	String	默认为1，支持传统的页码分页方式和scroll_id分页方式，根据用户自身需求传入值。示例1：商品入库，则首次传入1，后续传入接口返回的pageid，接口将持续返回符合条件的完整商品列表，该方式可以避免入口商品重复；示例2：根据pagesize和totalNum计算出总页数，按照需求返回指定页的商品（该方式可能在临近页取到重复商品）
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.PullGoodsByTimeRequest.Cid">
+            <summary> 
+            cid 一级类目id	否	String	大淘客的一级分类id。当一级类目id和二级类目id同时传入时，会自动忽略二级类目id
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.PullGoodsByTimeRequest.SubCid">
+            <summary> 
+            subcid 二级类目id	否	Number	大淘客的二级类目id，通过超级分类API获取。仅允许传一个二级id，当一级类目id和二级类目id同时传入时，会自动忽略二级类目id
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.PullGoodsByTimeRequest.Pre">
+            <summary> 
+            pre 是否预告商品	否	Number	1-预告商品，0-非预告商品
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.PullGoodsByTimeRequest.Sort">
+            <summary> 
+            sort 排序方式	否	String	默认为0，0-综合排序，1-商品上架时间从新到旧，2-销量从高到低，3-领券量从高到低，4-佣金比例从高到低，5-价格（券后价）从高到低，6-价格（券后价）从低到高
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.PullGoodsByTimeRequest.StartTime">
+            <summary> 
+            startTime 开始时间	否	String	格式为yy-mm-dd hh:mm:ss，商品下架的时间大于等于开始时间
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.PullGoodsByTimeRequest.EndTime">
+            <summary> 
+            endTime 结束时间	否	String	默认为请求的时间，商品下架的时间小于等于结束时间
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.PullGoodsByTimeRequest.FreeShipRemoteDistrict">
+            <summary> 
+            freeshipRemoteDistrict 偏远地区包邮	否	Number	1.是，0.否
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.SearchSuggestionRequest.KeyWords">
+            <summary>
+            keyWords	关键词	是	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.SearchSuggestionRequest.Type">
+            <summary>
+            type	当前搜索API类型：1.大淘客搜索 2.联盟搜索 3.超级搜索	是	Number
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.TopicGoodsListRequest.PageId">
+            <summary>
+            pageId	分页id	是	String	默认为1，支持传统的页码分页方式和scroll_id分页方式，根据用户自身需求传入值。示例1：商品入库，则首次传入1，后续传入接口第一次返回的pageid，接口将持续返回符合条件的完整商品列表，该方式可以避免入库商品重复；示例2：根据pagesize和totalNum计算出总页数，按照需求返回指定页的商品（该方式可能在临近页取到重复商品）
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.TopicGoodsListRequest.PageSize">
+            <summary>
+            pageSize	每页条数	否	Number	默认为100，大于100按100处理
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Request.TopicGoodsListRequest.TopicId">
+            <summary>
+            topicId	专辑id	是	Number	通过精选专辑API获取的活动id
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.ActivityCatalogueResponse.ActivityId">
+            <summary>
+            activityId	活动ID	Number	32549
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.ActivityCatalogueResponse.ActivityName">
+            <summary>
+            activityName	活动名称	String	“双11定金预售”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.ActivityCatalogueResponse.StartTime">
+            <summary>
+            startTime	活动开始时间	Date	2019-10-22 11:00:00
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.ActivityCatalogueResponse.EndTime">
+            <summary>
+            endTime	活动结束时间	Date	2019-10-25 11:00:00
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.ActivityCatalogueResponse.GoodsLabel">
+            <summary>
+            goodsLabel	单品标签图片	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.ActivityCatalogueResponse.DetailLabel">
+            <summary>
+            detailLabel	商详页标签图片	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.ActivityCatalogueResponse.GoodsType">
+            <summary>
+            goodsType	活动商品类型 1.非定金商品 2.定金商品 3.付付定返红包	Number
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.BaseResponse.Time">
+            <summary> 
+             时间戳
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.BaseResponse.Code">
+            <summary>
+             0 正常
+            -1 服务器错误	稍后尝试访问
+             1 参数错误 请根据msg提示信息进行修改
+             10007 参数错误 开始时间必须小于或等于结束时间
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.BaseResponse.Msg">
+            <summary> 
+            信息
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.BaseResponse.IsSuccess">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.WrapperResponse`1.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="T:EasyTk.DaTaoKe.Response.WrapperResponseList`1">
+            <summary>
+            列表
+            </summary>
+            <typeparam name="TResponse"></typeparam>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.WrapperResponseList`1.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="T:EasyTk.DaTaoKe.Response.WrapperResponseList`1.WrapperResponseListData">
+            <summary>
+            列表
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.DdqGoodsListResponse.GoodsList">
+            <summary>
+            	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.DdqGoodsListResponse.RoundsList">
+            <summary>
+            roundsList	场次列表	List	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.RoundsListItem.DdqTime">
+            <summary>
+            ddqTime	场次时间	String	2019-12-10 08:00:00
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.RoundsListItem.Status">
+            <summary>
+            status	场次状态,0-已开始，1-当前场次，2-未开始	Number	0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.BrandId">
+            <summary>
+            brandId	品牌ID	String	3224818
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.BrandName">
+            <summary>
+            brandName	品牌名称	String	背靠背
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.BrandLogo">
+            <summary>
+            brandLogo	品牌logo	String	https://img.alicdn.com/bao/uploaded///img.taobaocdn.com/tps/TB1xENRpf2H8KJjy1zkXXXr7pXa
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.BrandEnglish">
+            <summary>
+            brandEnglish	品牌英文名称	String	Kappa
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.BrandScore">
+            <summary>
+            brandScore	店铺评分	Number	3
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.Location">
+            <summary>
+            location	发源地	String	北京
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.EstablishTime">
+            <summary>
+            establishTime	创立时间	String	1987
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.Belong">
+            <summary>
+            belong	所属公司	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.Position">
+            <summary>
+            position	品牌定位：1. 奢侈 2.轻奢 3.大众	Sting	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.Consumer">
+            <summary>
+            consumer	消费群体	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.Label">
+            <summary>
+            label	特色标签	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.SimpleLabel">
+            <summary>
+            simpleLabel	一句话评价	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.Cids">
+            <summary>
+            cids	主营类目（可能有多个主营类目，用逗号隔开）
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.GetBrandListShop.Name">
+            <summary>
+            name	旗舰店铺名称	String	Kappa官方旗舰店
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetBrandListResponse.GetBrandListShop.SellerId">
+            <summary>
+            sellerId	店铺ID	Number	285492195
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetCollectionListResponse.Id">
+            <summary>
+            id	商品id	Number	18926311
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetCollectionListResponse.GoodsId">
+            <summary>
+            goodsId	淘宝商品id	String	“589284195570”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetCollectionListResponse.TrailerGoods">
+            <summary>
+            trailerGoods	是否预告商品，0- 一般商品，1- 预告商品	Number	0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.Id">
+            <summary>
+            id	商品id	Number	19006425
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.GoodsId">
+            <summary>
+            goodsId	淘宝商品id	String	“579154850367”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.OriginalPrice">
+            <summary>
+            originalPrice	原价	Number	59
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.ActualPrice">
+            <summary>
+            actualPrice	实际价格	Number	39
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.CouponPrice">
+            <summary>
+            couponPrice	券金额	Number	20
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.Discounts">
+            <summary>
+            discounts	折扣力度	Number	0.66
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.CommissionType">
+            <summary>
+            commissionType	佣金类型， 0-通用 ，1- 定向，2-高佣，3-营销计划	Number	3
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.CommissionRate">
+            <summary>
+            commissionRate	佣金比率	Number	30
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.CouponReceiveNum">
+            <summary>
+            couponReceiveNum	已经领券的数量	Number	0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.TwoHoursSales">
+            <summary>
+            twoHoursSales	两小时销量	Number	0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.MonthSales">
+            <summary>
+            monthSales	30天销量	Number	4861
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.DailySales">
+            <summary>
+            dailySales	当天销量	Number	0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.HotPush">
+            <summary>
+            hotPush	热推值	Number	7
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetNewestGoodsResponse.SubCid">
+            <summary>
+            subcid	商品在大淘客的二级分类id，该分类为前端分类，一个商品可能有多个二级分类id	List[Number]	[86369,90723]
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetOwnerGoodsResponse.Id">
+            <summary>
+            id	商品id	Number	18592060
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetOwnerGoodsResponse.GoodsId">
+            <summary>
+            goodsId	淘宝商品id	Number	521027319777
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetOwnerGoodsResponse.CreateTime">
+            <summary>
+            createTime	上架时间	String	“2019-03-09 07:43:38”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetOwnerGoodsResponse.LowerShelfTime">
+            <summary>
+            lowerShelfTime	下架时间	String	“2019-03-09 11:43:29”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetOwnerGoodsResponse.RefuseReason">
+            <summary>
+            refuseReason	拒绝理由/下架理由，无上架时间则是拒绝理由，有上架时间则是下架理由	String	券过期或失效,系统下架!!
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetOwnerGoodsResponse.ConsumptionCoupon">
+            <summary>
+            consumptionCoupon	消费点券	String	100
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetOwnerGoodsResponse.UserId">
+            <summary>
+            userId	用户id	String	688412
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetOwnerGoodsResponse.Note">
+            <summary>
+            note	备注	String	“没有备注”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetOwnerGoodsResponse.ShelfTime">
+            <summary>
+            shelfTime	提交时间	Date	“2019-03-09T07:43:38”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetOwnerGoodsResponse.MonthSales">
+            <summary>
+            monthSales	销量	Number	52358
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetOwnerGoodsResponse.CommissionRate">
+            <summary>
+            commissionRate	佣金比例	Number	20
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetOwnerGoodsResponse.CouponReceiveNum">
+            <summary>
+            couponReceiveNum	领券量	Number	3000
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetOwnerGoodsResponse.ShelfStatus">
+            <summary>
+            shelfStatus	上下架状态，默认为1，1-未下架商品，0-已下架商品	Number	0
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:EasyTk.DaTaoKe.Response.GetPrivilegeLinkResponse.CouponClickUrl" -->
+        <member name="P:EasyTk.DaTaoKe.Response.GetPrivilegeLinkResponse.CouponEndTime">
+            <summary>
+            couponEndTime	优惠券结束时间	String	2016-09-26
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetPrivilegeLinkResponse.CouponInfo">
+            <summary>
+            couponInfo	优惠券面额	String	满16元减10元
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetPrivilegeLinkResponse.CouponStartTime">
+            <summary>
+            couponStartTime	优惠券开始时间	String	2016-09-25
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetPrivilegeLinkResponse.ItemId">
+            <summary>
+            itemId	商品id	Number	524136796550
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetPrivilegeLinkResponse.CouponTotalCount">
+            <summary>
+            couponTotalCount	优惠券总量	Number	8000
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetPrivilegeLinkResponse.CouponRemainCount">
+            <summary>
+            couponRemainCount	优惠券剩余量	Number	6859
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:EasyTk.DaTaoKe.Response.GetPrivilegeLinkResponse.ItemUrl" -->
+        <member name="P:EasyTk.DaTaoKe.Response.GetPrivilegeLinkResponse.TPwd">
+            <summary>
+            tpwd	淘口令	String	￥vpZTYeQ3RtO￥
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetPrivilegeLinkResponse.MaxCommissionRate">
+            <summary>
+            maxCommissionRate	佣金比例	Number	20
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetPrivilegeLinkResponse.ShortUrl">
+            <summary>
+            shortUrl	短链接	String	https://s.click.taobao.com/xaulr5w
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseNormal.Ranking">
+            <summary>
+            ranking	榜单名次	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseNormal.NewRankingGoods">
+            <summary>
+            newRankingGoods	是否新上榜商品（12小时内入榜的商品） 0.否1.是	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseNormal.AvgSales">
+            <summary>
+            avgSales	日均销量（仅复购榜返回该字段）	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseNormal.EntryTime">
+            <summary>
+            entryTime	入榜时间（仅复购榜返回该字段）	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorldRise.Top">
+            <summary>
+            top	热词榜排名	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorldRise.KeyWord">
+            <summary>
+            keyWord	热搜词	String
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorldRise.HotVal">
+            <summary>
+            hotVal	排名热度值	Number	123456
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorldRise.GoodsList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorldRise.GoodsItem.Ranking">
+            <summary>
+            ranking	榜单名次	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorldRise.GoodsItem.NewRankingGoods">
+            <summary>
+            newRankingGoods	是否新上榜商品（12小时内入榜的商品） 0.否1.是	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorldRise.GoodsItem.AvgSales">
+            <summary>
+            avgSales	日均销量（仅复购榜返回该字段）	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorldRise.GoodsItem.EntryTime">
+            <summary>
+            entryTime	入榜时间（仅复购榜返回该字段）	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorldRise.GoodsItem.Score">
+            <summary>
+            score	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorld.Top">
+            <summary>
+            top	热词榜排名	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorld.KeyWord">
+            <summary>
+            keyWord	热搜词	String
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorld.HotVal">
+            <summary>
+            hotVal	排名热度值	Number	123456
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorld.GoodsList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorld.GoodsItem.Ranking">
+            <summary>
+            ranking	榜单名次	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorld.GoodsItem.NewRankingGoods">
+            <summary>
+            newRankingGoods	是否新上榜商品（12小时内入榜的商品） 0.否1.是	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorld.GoodsItem.AvgSales">
+            <summary>
+            avgSales	日均销量（仅复购榜返回该字段）	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorld.GoodsItem.EntryTime">
+            <summary>
+            entryTime	入榜时间（仅复购榜返回该字段）	String	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetRankingListResponseHotWorld.GoodsItem.Score">
+            <summary>
+            score	Number	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetStaleGoodsByTimeResponse.Id">
+            <summary> 
+            id 商品id	Number	18926311
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetStaleGoodsByTimeResponse.GoodsId">
+            <summary> 
+            goodsId 淘宝商品id	String	“589284195570”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetSuperCategoryResponse.Cid">
+            <summary>
+            cid	一级分类ID，1 -女装，2 -母婴，3 -美妆，4 -居家日用，5 -鞋品，6 -美食，7 -文娱车品，8 -数码家电，9 -男装，10 -内衣，11 -箱包，12 -配饰，13 -户外运动，14 -家装家纺	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetSuperCategoryResponse.Cname">
+            <summary>
+            cname	一级分类名称	String	女装
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetSuperCategoryResponse.Cpic">
+            <summary>
+            cpic	一级分类图标	string	https://img.alicdn.com/imgextra/i1/2053469401/TB2oX82HL9TBuNjy0FcXXbeiFXa-2053469401.png
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetSuperCategoryResponse.GetSuperCategorySub.SubCid">
+            <summary>
+            subcid	二级分类Id，根据实际返回id为准	Number	98713
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetSuperCategoryResponse.GetSuperCategorySub.SubCname">
+            <summary>
+            scname	二级分类名称	String	T恤/短袖
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetSuperCategoryResponse.GetSuperCategorySub.ScPic">
+            <summary>
+            scpic	二级分类图标	string	https://img.alicdn.com/imgextra/i1/2053469401/TB2oX82HL9TBuNjy0FcXXbeiFXa-2053469401.png
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.Title">
+            <summary>
+            title	商品信息-商品标题	String	毛呢阔腿裤港味复古女裤子秋冬九分裤萝卜裤显瘦高腰韩版2017新款
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.Volume">
+            <summary>
+            volume	商品信息-30天销量	Number	123
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.Nick">
+            <summary>
+            nick	店铺信息-卖家昵称	String	旗舰店
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.CouponStartTime">
+            <summary>
+            coupon_start_time	优惠券信息-优惠券开始时间	String	2017-10-29
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.CouponEndTime">
+            <summary>
+            coupon_end_time	优惠券信息-优惠券结束时间	String	2017-10-29
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.TkTotalSales">
+            <summary>
+            tk_total_sales	商品信息-淘客30天推广量	String	11
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.CouponId">
+            <summary>
+            coupon_id	优惠券信息-优惠券id	String	d62db1ab8d9546b1bf0ff49bda5fc33b
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.PictUrl">
+            <summary>
+            pict_url	商品信息-商品主图	String	https://img.alicdn.com/bao/uploaded/i4/745957850/TB1WzSRmV9gSKJjSspbXXbeNXXa_!!0-item_pic.jpg
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.SmallImages">
+            <summary>
+            small_images	商品信息-商品小图列表	String[]	https://img.alicdn.com/i4/3077291146/TB2NA3poDnI8KJjSszgXXc8ApXa_!!3077291146.jpg
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.ReservePrice">
+            <summary>
+            reserve_price	商品信息-商品一口价格	String	102.00
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.ZkFinalPrice">
+            <summary>
+            zk_final_price	商品信息-商品折扣价格	String	88.00
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.UserType">
+            <summary>
+            user_type	店铺信息-卖家类型，0-表示集市，1-表示天猫	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.SellerId">
+            <summary>
+            seller_id	店铺信息-卖家id	Number	232332
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.CouponTotalCount">
+            <summary>
+            coupon_total_count	优惠券信息-优惠券总量	Number	22323
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.CouponRemainCount">
+            <summary>
+            coupon_remain_count	优惠券信息-优惠券剩余量	Number	111
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.CouponInfo">
+            <summary>
+            coupon_info	优惠券信息-优惠券满减信息	String	满299元减20元
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.ShopTitle">
+            <summary>
+            shop_title	店铺信息-店铺名称	String	xx旗舰店
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.ShopDsr">
+            <summary>
+            shop_dsr	店铺信息-店铺dsr评分	Number	13
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.LevelOneCategoryName">
+            <summary>
+            level_one_category_name	商品信息-一级类目名称	String	女装
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.LevelOneCategoryId">
+            <summary>
+            level_one_category_id	商品信息-一级类目ID	Number	20
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.CategoryName">
+            <summary>
+            category_name	商品信息-叶子类目名称	String	连衣裙
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.CategoryId">
+            <summary>
+            category_id	商品信息-叶子类目id	Number	162201
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.ShortTitle">
+            <summary>
+            short_title	商品信息-商品短标题	String	xxsd
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.WhiteImage">
+            <summary>
+            white_image	商品信息-商品白底图	String	https://img.alicdn.com/bao/uploaded/i4/745957850/TB1WzSRmV9gSKJjSspbXXbeNXXa\_!!0-item_pic.jpg
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.CouponStartFee">
+            <summary>
+            coupon_start_fee	优惠券信息-优惠券起用门槛	String	满X元可用。如：满299元减20元
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.CouponAmount">
+            <summary>
+            coupon_amount	优惠券信息-优惠券面额	String	如：满299元减20元
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.ItemDescription">
+            <summary>
+            item_description	商品信息-宝贝描述(推荐理由)	String	季凉被 全棉亲肤
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.ItemId">
+            <summary>
+            item_id	商品信息-宝贝id	Number	5678899993
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.CommissionRate">
+            <summary>
+            commission_rate	佣金比例	Number	5
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.YsylTljFace">
+            <summary>
+            ysyl_tlj_face	预估淘礼金	Number	5
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.PreSaleDeposit">
+            <summary>
+            presale_deposit	预售定金	Number	5
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbServiceResponse.PreSaleDiscountFeeText">
+            <summary>
+            presale_discount_fee_text	定金立减	String	预售立减30
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbTopicListResponse.Id">
+            <summary>
+            id	活动id	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbTopicListResponse.ActivityName">
+            <summary>
+            activityName	活动名称	String	“聚划算-日常-品牌清仓”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbTopicListResponse.ActivityStartTime">
+            <summary>
+            activityStartTime	活动开始时间	String	“2020-03-02 00:00:00”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbTopicListResponse.ActivityEndTime">
+            <summary>
+            activityEndTime	活动结束时间	String	“2020-03-31 23:59:59”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbTopicListResponse.ActivityInfo">
+            <summary>
+            activityInfo	活动信息	String	清仓info
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbTopicListResponse.Type">
+            <summary>
+            type	端口类型	Number	1
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:EasyTk.DaTaoKe.Response.GetTbTopicListResponse.ActivityLink" -->
+        <member name="P:EasyTk.DaTaoKe.Response.GetTbTopicListResponse.MaterialLink">
+            <summary>
+            materialLink	素材链接	String	“https://gw.alicdn.com/tfs/TB1iUMatQP2gK0jSZPxXXacQpXa-440-180.jpg“
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.GetTop100Response.HotWords">
+            <summary>
+            hotWords	热搜词	Array	“螺蛳粉”, “耳机”, “充电宝”, “水杯”, “防晒霜”, “口红”,”面膜”, “睡衣”,”洗面奶”, “蓝牙耳机”, “天猫超市”, “男鞋”,”女鞋”, “内裤”,”卸妆水”, “洗发水”, “零食”……
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.Id">
+            <summary> 
+            id 商品id	Number	18926311
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.GoodsId">
+            <summary> 
+            goodsId 淘宝商品id	String	“589284195570”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.ItemLink">
+            <summary> 
+            itemLink 商品淘宝链接	String	“https://detail.tmall.com/item.htm?id=589284195570“
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.Title">
+            <summary> 
+            title 淘宝标题	String	“西维里男士睡衣夏季韩版真丝短袖丝绸薄款宽松青年冰丝家居服套装”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.DTitle">
+            <summary> 
+            dtitle 大淘客短标题	String	“夏季睡衣男冰丝短袖丝绸家居服套装”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.Desc">
+            <summary> 
+            desc 推广文案	String	“宽松舒适，难以磨损典，雅而优美，倍感丝滑，质感优越，庄严而心仪，简约设计，色调清新脱俗，适合各种场合”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.Cid">
+            <summary> 
+            cid 商品在大淘客的分类id	Number	10
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.SubCid">
+            <summary> 
+            subcid 商品在大淘客的二级分类id，该分类为前端分类，一个商品可能有多个二级分类id	List[Number]	[86369,90723]
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.TbCid">
+            <summary> 
+            tbcid 商品在淘宝的分类id	Number	50012772
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.MainPic">
+            <summary> 
+            mainPic 商品主图链接	String	“img.alicdn.com/imgextra/i2/4014489195/O1CN01kYlVPs2HnMKYwLLRm_!!4014489195.jpg”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.MarketingMainPic">
+            <summary> 
+            marketingMainPic 营销主图链接	String	“https://sr.ffquan.com/super_pic/o_1d6fpckjs1ii3h9dkibk9b7h38.jpg“
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.OriginalPrice">
+            <summary> 
+            originalPrice 商品原价	Number	38.5
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.ActualPrice">
+            <summary> 
+            actualPrice 券后价	Number	28.5
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.Discounts">
+            <summary> 
+            discounts 折扣力度	Number	0.74
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.CommissionType">
+            <summary> 
+            commissionType 佣金类型，0-通用，1-定向，2-高佣，3-营销计划	Number	3
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.CommissionRate">
+            <summary> 
+            commissionRate 佣金比例	Number	20
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.CouponLink" -->
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.CouponTotalNum">
+            <summary> 
+            couponTotalNum 券总量	Number	7000
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.CouponReceiveNum">
+            <summary> 
+            couponReceiveNum 领券量	Number	1000
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.CouponEndTime">
+            <summary> 
+            couponEndTime 优惠券结束时间	String	“2019-04-08 23:59:59”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.CouponStartTime">
+            <summary> 
+            couponStartTime 优惠券开始时间	String	“2019-04-01 00:00:00”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.CouponPrice">
+            <summary> 
+            couponPrice 优惠券金额	Number	10
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.CouponConditions">
+            <summary> 
+            couponConditions 优惠券使用条件	String	“38”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.MonthSales">
+            <summary> 
+            monthSales 30天销量	Number	1030
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.TwoHoursSales">
+            <summary> 
+            twoHoursSales 2小时销量	Number	30
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.DailySales">
+            <summary> 
+            dailySales 当日销量	Number	20
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.Brand">
+            <summary> 
+            brand 是否是品牌商品	Number	4
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.BrandId">
+            <summary> 
+            brandId 品牌id	Number	2301323020
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.BrandName">
+            <summary> 
+            brandName 品牌名称	String	“西维里”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.CreateTime">
+            <summary> 
+            createTime 商品上架时间	String	“2019-03-29 10:00:06”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.TChaoShi">
+            <summary> 
+            tchaoshi 是否天猫超市商品，1-天猫超市商品，0-非天猫超市商品	Number	0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.ActivityType">
+            <summary> 
+            activityType 活动类型，1-无活动，2-淘抢购，3-聚划算	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.ActivityStartTime">
+            <summary> 
+            activityStartTime 活动开始时间	String	“2019-03-29 10:00:06”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.ActivityEndTime">
+            <summary> 
+            activityEndTime 活动结束时间	String	“2019-04-29 10:00:06”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.ShopType">
+            <summary> 
+            shopType 店铺类型，1-天猫，0-淘宝	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.HaiTao">
+            <summary> 
+            haitao 是否海淘，1-海淘商品，0-非海淘商品	Number	0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.GoldSellers">
+            <summary> 
+            goldSellers 是否金牌卖家，1-金牌卖家，0-非金牌卖家	Number	0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.SellerId">
+            <summary> 
+            sellerId 淘宝卖家id	String	“4014489195”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.ShopName">
+            <summary> 
+            shopName 店铺名称	String	“西维里旗舰店”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.ShopLevel">
+            <summary> 
+            shopLevel 淘宝店铺等级	Number	11
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.DescScore">
+            <summary> 
+            descScore 描述分	Number	4.8
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.DsrScore">
+            <summary> 
+            dsrScore 描述相符	Number	4.8
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.DsrPercent">
+            <summary> 
+            dsrPercent 描述同行比	Number	0.0
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.ShipScore">
+            <summary> 
+            shipScore 服务态度	Number	4.8
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.ShipPercent">
+            <summary> 
+            shipPercent 服务同行比	Number	10.32
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.ServiceScore">
+            <summary> 
+            serviceScore 物流服务	Number	4.8
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.ServicePercent">
+            <summary> 
+            servicePercent 物流同行比	Number	5.82
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.HotPush">
+            <summary> 
+            hotPush 热推值	Number	456
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.TeamName">
+            <summary> 
+            teamName 放单人名称	String	“阿甘团队”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.QuanMLink">
+            <summary> 
+            quanMLink 定金，若无定金，则显示0	Number	10
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.HzQuanOver">
+            <summary> 
+            hzQuanOver 立减，若无立减金额，则显示0	Number	100
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.YunFeiXian">
+            <summary> 
+            yunfeixian 0.不包运费险 1.包运费险	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.EstimateAmount">
+            <summary> 
+            estimateAmount 预估淘礼金	Number	25.2
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.ShopLogo">
+            <summary> 
+            shopLogo 店铺logo	String	https://img.alicdn.com/imgextra//59/df/TB1lJVxNFXXXXcoXFXXSutbFXXX.jpg
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.SpecialText">
+            <summary> 
+            specialText 特色文案	List	
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.Partial.GoodItemPartial.FreeShipRemoteDistrict">
+            <summary> 
+            freeshipRemoteDistrict 偏远地区包邮，0.不包邮，1.包邮	Number	1
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.SearchSuggestionResponse.Kw">
+            <summary>
+            kw	联想词	String	裙子夏2019新款
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.SearchSuggestionResponse.Total">
+            <summary>
+            total	对应联想词的商品数量（仅大淘客搜索返回该参数，当使用接口参数为2和3时，不会返回该字段）	Number	165
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.TopicCatalogueResponse.TopicId">
+            <summary>
+            topicId	活动ID	Number	32549
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.TopicCatalogueResponse.TopicName">
+            <summary>
+            topicName	活动名称	String	“双11定金预售”
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.TopicCatalogueResponse.StartTime">
+            <summary>
+            startTime	活动开始时间	Date	2019-10-22 11:00:00
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.TopicCatalogueResponse.EndTime">
+            <summary>
+            endTime	活动结束时间	Date	2019-10-25 11:00:00
+            </summary>
+        </member>
+        <member name="P:EasyTk.DaTaoKe.Response.TopicCatalogueResponse.Banner">
+            <summary>
+            banner	专辑活动banner（部分活动提供banner，可能提供多张）	list	“banner”: [“https://img.alicdn.com/imgextra/i3/2053469401/O1CN017nk61o2JJhynllMEo_!!2053469401.jpg","https://img.alicdn.com/imgextra/i2/2053469401/O1CN01RkMLNs2JJhyiN8RNo_!!2053469401.jpg“ ]
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -6,6 +6,10 @@
     <Description>拼多多多客</Description>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\EasyTk.PinDuoDuo.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\EasyTk.Core\EasyTk.Core.csproj" />
     <ProjectReference Include="..\EasyTk\EasyTk.csproj" />
