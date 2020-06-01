@@ -5,7 +5,7 @@ namespace EasyTk.HaoDanKu.Request
     /// <summary>
     /// 今日推荐品牌API
     /// </summary>
-    public class BrandTodayRecommendRequest : BaseRequest<WrapperResponse<BrandTodayRecommendResponse>>
+    public class BrandTodayRecommendRequest : BaseRequest<WrapperResponse<BrandResponse.TodayRecommendData>>
     {
         public override string GetApiUrl() => "http://v2.api.haodanku.com/brand_todayrecommend";
     }

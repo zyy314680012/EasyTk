@@ -18,7 +18,7 @@ namespace EasyTk.HaoDanKu.Test
         {
             var req = new BrandInfoRequest
             {
-
+                
             };
             var resp = await Client.ExecuteAsync(req);
             var g = resp;

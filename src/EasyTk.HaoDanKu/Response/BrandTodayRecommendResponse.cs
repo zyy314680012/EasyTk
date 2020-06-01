@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace EasyTk.HaoDanKu.Response
 {
+    [Obsolete]
     public class BrandTodayRecommendResponse
     {
         ///<summary> 

@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace EasyTk.HaoDanKu.Request
 {
-    public class BrandRequest : BaseRequest<WrapperResponse<BrandResponse>>
+    public class BrandRequest : BaseRequest<BrandResponse>
     {
         /// <summary>
         /// 品牌列表API

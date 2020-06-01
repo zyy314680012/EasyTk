@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace EasyTk.HaoDanKu.Response
 {
-    public class BrandResponse
+    public class BrandResponse: BaseResponse
     {
         [JsonProperty("data")]
         public IList<BrandResponseData> Data { get; set; }
