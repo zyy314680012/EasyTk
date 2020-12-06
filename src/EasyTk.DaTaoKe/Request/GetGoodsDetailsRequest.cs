@@ -11,6 +11,8 @@ namespace EasyTk.DaTaoKe.Request
     {
         public override string GetApiUrl() => "https://openapi.dataoke.com/api/goods/get-goods-details";
 
+        public override string Version => "v1.2.3";
+
         #region 
 
         ///<summary> 

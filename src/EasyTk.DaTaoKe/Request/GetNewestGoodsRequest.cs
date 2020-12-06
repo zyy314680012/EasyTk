@@ -135,6 +135,12 @@ namespace EasyTk.DaTaoKe.Request
         [JsonProperty("sort")]
         public long? Sort { get; set; }
 
+        /// <summary>
+        /// 1-活动预售商品，0-所有商品，不填默认为0。（2020.10.30号新增字段）
+        /// </summary>
+        [JsonProperty("preSale")]
+        public int? PreSale { get; set; } = 0;
+
         #endregion
     }
 }

@@ -5,11 +5,17 @@ namespace EasyTk.DaTaoKe.Request
 {
     /// <summary>
     /// 商品列表
-    /// 构建商品库，数据入库，建议您首次获取全量商品时调用该接口，若您需要更新商品库中的商品数据（如销量、领券量等）请使用商品更新接口，若您需要获取更多增量商品请通过定时拉取接口获取新的商品信息，若您需要在库中删除失效商品，请使用失效商品接口进行查询后删除
+    /// 构建商品库，就首次将所有商品全量入库，后续可通过实定时拉取、失效商品、商品更新等接口保证商品增量和商品的信息同步
+    /// 该接口返回筛选条件内的所有商品列表和商品信息
     /// </summary>
     public class GetGoodsListRequest : BaseRequest<WrapperResponseList<GetGoodsListResponse>>
     {
         public override string GetApiUrl() => "https://openapi.dataoke.com/api/goods/get-goods-list";
+
+        /// <summary>
+        /// 当前版本号 1.2.4
+        /// </summary>
+        public override string Version => "v1.2.4";
 
         #region 
 
