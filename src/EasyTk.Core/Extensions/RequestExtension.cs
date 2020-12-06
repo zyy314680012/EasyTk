@@ -85,6 +85,10 @@ namespace EasyTk.Core.Extensions
                 {
                     continue;
                 }
+                if (customs.Any(p=>p is ObsoleteAttribute))
+                {
+                    continue;
+                }
 
                 var jsonProperty = customs.FirstOrDefault(p => p is Newtonsoft.Json.JsonPropertyAttribute);
                 if (jsonProperty != null)

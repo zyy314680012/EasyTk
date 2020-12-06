@@ -15,6 +15,12 @@ namespace EasyTk.PinDuoDuo.Request
         [JsonProperty("order_sn")]
         public string OrderSn { get; set; }
 
+        /// <summary>
+        /// query_order_type	 INTEGER	非必填	订单类型：1-推广订单；2-直播间订单
+        /// </summary>
+        [JsonProperty("query_order_type")]
+        public int? QueryOrderType { get; set; }
+
         #endregion
     }
 }

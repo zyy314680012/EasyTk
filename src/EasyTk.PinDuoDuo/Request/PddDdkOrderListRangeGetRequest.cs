@@ -13,7 +13,7 @@ namespace EasyTk.PinDuoDuo.Request
         #region 
 
         /// <summary>
-        /// 支付结束时间
+        /// end_time	 STRING	必填	支付结束时间，格式: "yyyy-MM-dd HH:mm:ss" ，比如 "2020-12-01 00:00:00"
         /// </summary>
         [JsonProperty("end_time")]
         public string EndTime { get; set; }
@@ -31,7 +31,13 @@ namespace EasyTk.PinDuoDuo.Request
         public long? PageSize { get; set; }
 
         /// <summary>
-        /// 支付起始时间
+        /// query_order_type	INTEGER	非必填	订单类型：1-推广订单；2-直播间订单
+        /// </summary>
+        [JsonProperty("query_order_type")]
+        public int? QueryOrderType { get; set; }
+
+        /// <summary>
+        /// start_time	STRING	必填	支付起始时间，格式: "yyyy-MM-dd HH:mm:ss" ，比如 "2020-12-01 00:00:00"
         /// </summary>
         [JsonProperty("start_time")]
         public string StartTime { get; set; }

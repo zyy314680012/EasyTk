@@ -48,6 +48,11 @@ namespace EasyTk.PinDuoDuo.Request
         [JsonProperty("zs_duo_id")]
         public long? ZsDuoId { get; set; }
 
+        /// <summary>
+        /// goods_sign	STRING	非必填	商品goodsSign，支持通过goods_sign查询商品。优先使用此字段进行查询
+        /// </summary>
+        [JsonProperty("goods_sign")]
+        public string GoodsSign { get; set; }
         #endregion
     }
 }

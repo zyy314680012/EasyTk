@@ -44,6 +44,13 @@ namespace EasyTk.PinDuoDuo.Response
             /// </summary>
             [JsonProperty("p_id")]
             public string PId { get; set; }
+
+            /// <summary>
+            /// media_id 	LONG		媒体id
+            /// </summary>
+            [JsonProperty("media_id")]
+            public long MediaId { get; set; }
+
         }
     }
 }

@@ -40,18 +40,6 @@ namespace EasyTk.PinDuoDuo.Response
         public class PddDdkGoodsRecommendGetDataItem
         {
             /// <summary>
-            /// 类目id
-            /// </summary>
-            [JsonProperty("category_id")]
-            public string CategoryId { get; set; }
-
-            /// <summary>
-            /// 分类名称
-            /// </summary>
-            [JsonProperty("category_name")]
-            public string CategoryName { get; set; }
-
-            /// <summary>
             /// 商品类目id
             /// </summary>
             [JsonProperty("cat_id")]
@@ -124,16 +112,16 @@ namespace EasyTk.PinDuoDuo.Response
             public string GoodsDesc { get; set; }
 
             /// <summary>
+            /// goods_gallery_urls	STRING		商品详情图列表
+            /// </summary>
+            [JsonProperty("goods_gallery_urls")]
+            public string GoodsGalleryUrls { get; set; }
+
+            /// <summary>
             /// 商品实际价格
             /// </summary>
             [JsonProperty("goods_fact_price")]
             public long? GoodsFactPrice { get; set; }
-
-            /// <summary>
-            /// 商品详情图列表
-            /// </summary>
-            [JsonProperty("goods_gallery_urls")]
-            public string GoodsGalleryUrls { get; set; }
 
             /// <summary>
             /// 商品id
@@ -148,12 +136,6 @@ namespace EasyTk.PinDuoDuo.Response
             public string GoodsImageUrl { get; set; }
 
             /// <summary>
-            /// 商品标准价格
-            /// </summary>
-            [JsonProperty("goods_mark_price")]
-            public long? GoodsMarkPrice { get; set; }
-
-            /// <summary>
             /// 商品名称
             /// </summary>
             [JsonProperty("goods_name")]
@@ -164,6 +146,12 @@ namespace EasyTk.PinDuoDuo.Response
             /// </summary>
             [JsonProperty("goods_rate")]
             public long? GoodsRate { get; set; }
+
+            /// <summary>
+            /// goods_sign	STRING		商品goodsSign
+            /// </summary>
+            [JsonProperty("goods_sign")]
+            public string GoodsSign { get; set; }
 
             /// <summary>
             /// 商品缩略图

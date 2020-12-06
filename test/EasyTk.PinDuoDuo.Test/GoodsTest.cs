@@ -1,4 +1,5 @@
 ﻿using EasyTk.PinDuoDuo.Request;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace EasyTk.PinDuoDuo.Test
@@ -27,10 +28,13 @@ namespace EasyTk.PinDuoDuo.Test
         [Fact]
         public async void TestPddDdkGoodsSearchRequest()
         {
+            var cp = GetPidCustomParameters();
+            cp.Add("event", "12345");
             var req = new PddDdkGoodsSearchRequest
             {
                 Keyword = "女装",
-
+                Pid = Pid,
+                CustomParameters = ToJson(cp)
             };
             var resp = await Client.ExecuteAsync(req);
             var q = resp;
@@ -206,7 +210,7 @@ namespace EasyTk.PinDuoDuo.Test
         }
 
         [Fact]
-        public async void TestPddDdkTopGoodsListQueryRequest()
+        public async Task TestPddDdkTopGoodsListQueryRequest()
         {
             var req = new PddDdkTopGoodsListQueryRequest
             {

@@ -24,6 +24,11 @@ namespace EasyTk.PinDuoDuo.Request
         [JsonProperty("p_id_name_list")]
         public string[] PIdNameList { get; set; }
 
+        /// <summary>
+        /// media_id 	LONG	非必填	媒体id
+        /// </summary>
+        [JsonProperty("media_id")]
+        public long? MediaId { get; set; }
         #endregion
     }
 }

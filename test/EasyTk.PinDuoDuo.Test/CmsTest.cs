@@ -10,7 +10,8 @@ namespace EasyTk.PinDuoDuo.Test
         {
             var req = new PddDdkCmsPromUrlGenerateRequest
             {
-                PIdList = new[] { Pid }
+                PIdList = new[] { Pid },
+                GenerateMobile = true
             };
             var resp = await Client.ExecuteAsync(req);
             var q = resp;

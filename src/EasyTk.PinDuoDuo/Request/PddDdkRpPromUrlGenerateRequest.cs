@@ -13,7 +13,13 @@ namespace EasyTk.PinDuoDuo.Request
         #region 
 
         /// <summary>
-        /// -1-活动列表，0-默认红包，2–新人红包，3-刮刮卡，4-转盘 ，5-员工内购，6-购物车，7-大促会场
+        /// amount	LONG	非必填	初始金额（单位分），有效金额枚举值：300、500、700、1100和1600，默认300
+        /// </summary>
+        [JsonProperty("amount")]
+        public long? Amount { get; set; }
+
+        /// <summary>
+        /// -1-活动列表，0-默认红包，2–新人红包，3-刮刮卡，5-员工内购，6-购物车，7-大促会场，8-直播间列表集合页，10-生成绑定备案链接，11-生成超级红包（仅支持微信小程序），12-砸金蛋
         /// </summary>
         [JsonProperty("channel_type")]
         public long? ChannelType { get; set; }
@@ -65,6 +71,12 @@ namespace EasyTk.PinDuoDuo.Request
         /// </summary>
         [JsonProperty("p_id_list")]
         public string[] PIdList { get; set; }
+
+        /// <summary>
+        /// scratch_card_amount	LONG	非必填	刮刮卡指定金额（单位分），可指定2-100元间数值，即有效区间为：[200,10000]
+        /// </summary>
+        [JsonProperty("scratch_card_amount")]
+        public long? ScratchCardAmount { get; set; }
 
         public class DiyLotteryParamData
         {

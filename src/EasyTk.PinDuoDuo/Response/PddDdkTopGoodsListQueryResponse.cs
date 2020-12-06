@@ -118,6 +118,12 @@ namespace EasyTk.PinDuoDuo.Response
             public string GoodsName { get; set; }
 
             /// <summary>
+            /// goods_sign	STRING		商品goodsSign
+            /// </summary>
+            [JsonProperty("goods_sign")]
+            public string GoodsSign { get; set; }
+
+            /// <summary>
             /// 商品缩略图
             /// </summary>
             [JsonProperty("goods_thumbnail_url")]
@@ -170,6 +176,12 @@ namespace EasyTk.PinDuoDuo.Response
             /// </summary>
             [JsonProperty("opt_name")]
             public string OptName { get; set; }
+
+            /// <summary>
+            /// predict_promotion_rate	LONG		比价行为预判定佣金，需要用户备案
+            /// </summary>
+            [JsonProperty("predict_promotion_rate")]
+            public long? PredictPromotionRate { get; set; }
 
             /// <summary>
             /// 佣金比例，千分比

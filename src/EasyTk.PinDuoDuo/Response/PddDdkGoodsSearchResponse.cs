@@ -52,18 +52,6 @@ namespace EasyTk.PinDuoDuo.Response
             public long? ActivityType { get; set; }
 
             /// <summary>
-            /// 商品类目ID，使用pdd.goods.cats.get接口获取
-            /// </summary>
-            [JsonProperty("category_id")]
-            public long? CategoryId { get; set; }
-
-            /// <summary>
-            /// 商品类目名
-            /// </summary>
-            [JsonProperty("category_name")]
-            public string CategoryName { get; set; }
-
-            /// <summary>
             /// 商品类目id
             /// </summary>
             [JsonProperty("cat_ids")]
@@ -326,6 +314,12 @@ namespace EasyTk.PinDuoDuo.Response
             /// </summary>
             [JsonProperty("plan_type")]
             public long? PlanType { get; set; }
+
+            /// <summary>
+            /// predict_promotion_rate	LONG		比价行为预判定佣金，需要用户备案
+            /// </summary>
+            [JsonProperty("predict_promotion_rate")]
+            public long? PredictPromotionRate { get; set; }
 
             /// <summary>
             /// 佣金比例，千分比

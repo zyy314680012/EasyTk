@@ -27,6 +27,25 @@ namespace EasyTk.PinDuoDuo.Response
 
         public class PddDdkOrderListRangeGetDataItem
         {
+
+            /// <summary>
+            /// 多多客工具id
+            /// </summary>
+            [JsonProperty("auth_duo_id")]
+            public long? AuthDuoId { get; set; }
+
+            /// <summary>
+            /// 结算批次号
+            /// </summary>
+            [JsonProperty("batch_no")]
+            public string BatchNo { get; set; }
+
+            /// <summary>
+            /// 商品一~四级类目ID列表
+            /// </summary>
+            [JsonProperty("cat_ids")]
+            public long[] CatIds { get; set; }
+
             /// <summary>
             /// 是否是 cpa 新用户，1表示是，0表示否
             /// </summary>
@@ -70,10 +89,28 @@ namespace EasyTk.PinDuoDuo.Response
             public long? GoodsQuantity { get; set; }
 
             /// <summary>
+            /// goods_sign	STRING		商品goodsSign
+            /// </summary>
+            [JsonProperty("goods_sign")]
+            public string GoodsSign { get; set; }
+
+            /// <summary>
             /// 商品缩略图
             /// </summary>
             [JsonProperty("goods_thumbnail_url")]
             public string GoodsThumbnailUrl { get; set; }
+
+            /// <summary>
+            /// 成团编号
+            /// </summary>
+            [JsonProperty("group_id")]
+            public long? GroupId { get; set; }
+
+            /// <summary>
+            /// is_direct	INTEGER		是否直推 ，1表示是，0表示否
+            /// </summary>
+            [JsonProperty("is_direct")]
+            public int? IsDirect { get; set; }
 
             /// <summary>
             /// 实际支付金额，单位为分
@@ -148,16 +185,46 @@ namespace EasyTk.PinDuoDuo.Response
             public string PId { get; set; }
 
             /// <summary>
+            /// sep_duo_id	LONG		直播间订单推广duoId
+            /// </summary>
+            [JsonProperty("sep_duo_id")]
+            public long? SepDuoId { get; set; }
+
+            /// <summary>
+            /// sep_market_fee	INTEGER		直播间推广佣金
+            /// </summary>
+            [JsonProperty("sep_market_fee")]
+            public long? SepMarketFee { get; set; }
+
+            /// <summary>
+            /// sep_parameters	STRING		直播间推广自定义参数
+            /// </summary>
+            [JsonProperty("sep_parameters")]
+            public string SepParameters { get; set; }
+
+            /// <summary>
+            /// sep_pid	STRING		直播间订单推广位
+            /// </summary>
+            [JsonProperty("sep_pid")]
+            public string SepPid { get; set; }
+
+            /// <summary>
+            /// sep_rate	 INTEGER		直播间推广佣金比例
+            /// </summary>
+            [JsonProperty("sep_rate")]
+            public string SepRate { get; set; }
+
+            /// <summary>
             /// 订单类型：0：领券页面， 1： 红包页， 2：领券页， 3： 题页
             /// </summary>
             [JsonProperty("type")]
             public long? Type { get; set; }
 
             /// <summary>
-            /// 商品一~四级类目ID列表
+            /// 招商多多客id
             /// </summary>
-            [JsonProperty("cat_ids")]
-            public long[] CatIds { get; set; }
+            [JsonProperty("zs_duo_id")]
+            public long? ZsDuoId { get; set; }
         }
     }
 }

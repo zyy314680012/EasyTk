@@ -22,13 +22,13 @@ namespace EasyTk.PinDuoDuo.Response
             public class GoodsPromotionUrl
             {
                 /// <summary>
-                /// 唤醒拼多多app的推广短链接
+                /// 推广移动短链接，对应出参mobile_url的短链接，与mobile_url功能一致。
                 /// </summary>
                 [JsonProperty("mobile_short_url")]
                 public string MobileShortUrl { get; set; }
 
                 /// <summary>
-                /// 唤醒拼多多app的推广长链接
+                /// 推广移动链接，用户安装拼多多APP的情况下会唤起APP，否则唤起H5页面
                 /// </summary>
                 [JsonProperty("mobile_url")]
                 public string MobileUrl { get; set; }
@@ -74,18 +74,6 @@ namespace EasyTk.PinDuoDuo.Response
                 /// </summary>
                 [JsonProperty("we_app_info")]
                 public WeAppInfo WeAppInfo { get; set; }
-
-                /// <summary>
-                /// 唤起微信app推广短链接
-                /// </summary>
-                [JsonProperty("we_app_web_view_short_url")]
-                public string WeAppWebViewShortUrl { get; set; }
-
-                /// <summary>
-                /// 唤起微信app推广链接
-                /// </summary>
-                [JsonProperty("we_app_web_view_url")]
-                public string WeAppWebViewUrl { get; set; }
             }
         }
     }

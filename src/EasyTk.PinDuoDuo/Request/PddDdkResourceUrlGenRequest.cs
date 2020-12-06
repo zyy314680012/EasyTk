@@ -43,7 +43,7 @@ namespace EasyTk.PinDuoDuo.Request
         public string Pid { get; set; }
 
         /// <summary>
-        /// 频道来源：4-限时秒杀,39997-充值中心, 39998-转链type，39999-电器城，39996-百亿补贴
+        /// 频道来源：4-限时秒杀,39997-充值中心, 39998-转链type，39999-电器城，39996-百亿补贴，40000-领券中心
         /// </summary>
         [JsonProperty("resource_type")]
         public long? ResourceType { get; set; }

@@ -29,7 +29,13 @@ namespace EasyTk.PinDuoDuo.Request
         /// </summary>
         [JsonProperty("pid_list")]
         public string[] PidList { get; set; }
-        
+
+        /// <summary>
+        /// status	INTEGER	非必填	推广位状态：0-正常，1-封禁
+        /// </summary>
+        [JsonProperty("status")]
+        public int? Status { get; set; }
+
         #endregion
     }
 }

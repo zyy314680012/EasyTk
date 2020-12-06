@@ -13,6 +13,12 @@ namespace EasyTk.PinDuoDuo.Request
         #region 
 
         /// <summary>
+        /// cat_id	LONG	非必填	猜你喜欢场景的商品类目，20100-百货，20200-母婴，20300-食品，20400-女装，20500-电器，20600-鞋包，20700-内衣，20800-美妆，20900-男装，21000-水果，21100-家纺，21200-文具,21300-运动,21400-虚拟,21500-汽车,21600-家装,21700-家具,21800-医药;
+        /// </summary>
+        [JsonProperty("cat_id")]
+        public long? CatId { get; set; }
+
+        /// <summary>
         /// 0-1.9包邮, 1-今日爆款, 2-品牌清仓,3-相似商品推荐,4-猜你喜欢,5-实时热销,6-实时收益,7-今日畅销,8-高佣榜单，默认1
         /// </summary>
         [JsonProperty("channel_type")]
@@ -23,6 +29,18 @@ namespace EasyTk.PinDuoDuo.Request
         /// </summary>
         [JsonProperty("custom_parameters")]
         public string CustomParameters { get; set; }
+
+        /// <summary>
+        /// goods_ids	LONG[]	非必填	相似商品推荐场景时必传。商品Id，请求相似商品时，仅取数组的第一位
+        /// </summary>
+        [JsonProperty("goods_ids")]
+        public long[] GoodsIds { get; set; }
+
+        /// <summary>
+        /// goods_sign_list	STRING[]	非必填	相似商品推荐场景时必传。goodsSign，请求相似商品时，仅取数组的第一位
+        /// </summary>
+        [JsonProperty("goods_sign_list")]
+        public long[] GoodsSignList { get; set; }
 
         /// <summary>
         /// 请求数量；默认值 ： 400
@@ -47,18 +65,6 @@ namespace EasyTk.PinDuoDuo.Request
         /// </summary>
         [JsonProperty("pid")]
         public string Pid { get; set; }
-
-        /// <summary>
-        /// 猜你喜欢场景的商品类目，20100-百货，20200-母婴，20300-食品，20400-女装，20500-电器，20600-鞋包，20700-内衣，20800-美妆，20900-男装，21000-水果，21100-家纺，21200-文具,21300-运动,21400-虚拟,21500-汽车,21600-家装,21700-家具,21800-医药;
-        /// </summary>
-        [JsonProperty("cat_id")]
-        public long? CatId { get; set; }
-
-        /// <summary>
-        /// 相似商品推荐场景时必传。商品Id，请求相似商品时，仅取数组的第一位
-        /// </summary>
-        [JsonProperty("goods_ids")]
-        public long[] GoodsIds { get; set; }
 
         #endregion
     }

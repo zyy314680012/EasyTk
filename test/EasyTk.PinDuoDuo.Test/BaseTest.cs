@@ -20,5 +20,20 @@ namespace EasyTk.PinDuoDuo.Test
                 "b45f7f189dd133960ef5585cf9c25b45121726bd",
                 "https://gw-api.pinduoduo.com/api/router");
         }
+
+        public Dictionary<string, string> GetPidCustomParameters()
+        {
+            return new Dictionary<string, string>
+            {
+                { "uid","henry123"}
+            };
+        }
+
+        public string ToJson(Dictionary<string, string> cp)
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(cp);
+        }
     }
+
+
 }

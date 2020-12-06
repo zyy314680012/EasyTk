@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace EasyTk.PinDuoDuo.Response
 {
@@ -25,12 +26,14 @@ namespace EasyTk.PinDuoDuo.Response
             /// 商品类目ID，使用pdd.goods.cats.get接口获取
             /// </summary>
             [JsonProperty("category_id")]
+            [Obsolete("已废弃,使用opt_id")]
             public long? CategoryId { get; set; }
 
             /// <summary>
             /// 商品类目名
             /// </summary>
             [JsonProperty("category_name")]
+            [Obsolete("已废弃,使用opt_name")]
             public string CategoryName { get; set; }
 
             /// <summary>
@@ -327,7 +330,29 @@ namespace EasyTk.PinDuoDuo.Response
             [JsonProperty("zs_duo_id")]
             public long? ZsDuoId { get; set; }
 
+            /// <summary>
+            /// video_urls	STRING[]		商品视频url
+            /// </summary>
+            [JsonProperty("video_urls")]
+            public string[] VideoUrls { get; set; }
 
+            /// <summary>
+            /// predict_promotion_rate	LONG		比价行为预判定佣金，需要用户备案
+            /// </summary>
+            [JsonProperty("predict_promotion_rate")]
+            public long? PredictPromotionRate { get; set; }
+
+            /// <summary>
+            /// unified_tags 	STRING[]		优惠标签列表
+            /// </summary>
+            [JsonProperty("unified_tags")]
+            public string[] UnifiedTags { get; set; }
+
+            /// <summary>
+            /// goods_sign	STRING		商品goodsSign
+            /// </summary>
+            [JsonProperty("goods_sign")]
+            public string GoodsSign { get; set; }
         }
     }
 }

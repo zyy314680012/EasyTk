@@ -13,10 +13,22 @@ namespace EasyTk.PinDuoDuo.Request
         #region 业务参数
 
         /// <summary>
-        /// 商品活动标记数组，例：[4,7]，4-秒杀 7-百亿补贴等
+        /// 活动商品标记数组，例：[4,7]，4-秒杀，7-百亿补贴，31-品牌黑标，10564-精选爆品-官方直推爆款，10584-精选爆品-团长推荐，24-品牌高佣，20-行业精选，21-金牌商家，10044-潜力爆品，10475-爆品上新，其他的值请忽略
         /// </summary>
         [JsonProperty("activity_tags")]
         public long[] ActivityTags { get; set; }
+
+        /// <summary>
+        /// block_cats	INTEGER[]	非必填	自定义屏蔽一级/二级/三级类目ID，自定义数量不超过20个;使用pdd.goods.cats.get接口获取cat_id
+        /// </summary>
+        [JsonProperty("block_cats")]
+        public long[] BlockCats { get; set; }
+
+        /// <summary>
+        /// block_cat_packages	INTEGER[]	非必填	屏蔽商品类目包：1-拼多多小程序屏蔽的类目&关键词;2-虚拟类目;3-医疗器械;4-处方药;5-非处方药
+        /// </summary>
+        [JsonProperty("block_cat_packages")]
+        public long[] BlockCatPackages { get; set; }
 
         /// <summary>
         /// 商品类目ID，使用pdd.goods.cats.get接口获取
@@ -31,10 +43,10 @@ namespace EasyTk.PinDuoDuo.Request
         public string CustomParameters { get; set; }
 
         /// <summary>
-        /// 商品ID列表。例如：[123456,123]，当入参带有goods_id_list字段，将不会以opt_id、 cat_id、keyword维度筛选商品
+        /// goods_sign_list	STRING[]	非必填	goodsSign列表，支持通过goodsSign查询商品
         /// </summary>
-        [JsonProperty("goods_id_list")]
-        public long[] GoodsIdList { get; set; }
+        [JsonProperty("goods_sign_list")]
+        public string[] GoodsSignList { get; set; }
 
         /// <summary>
         /// 是否为品牌商品

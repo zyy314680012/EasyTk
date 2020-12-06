@@ -46,10 +46,16 @@ namespace EasyTk.PinDuoDuo.Request
         public bool? GenerateShortUrl { get; set; }
 
         /// <summary>
-        /// 是否唤起微信客户端， 默认false 否，true 是
+        /// generate_we_app	BOOLEAN	非必填	是否生成小程序推广
         /// </summary>
-        [JsonProperty("generate_weapp_webview")]
-        public bool? GenerateWeAppWebView { get; set; }
+        [JsonProperty("generate_we_app")]
+        public bool? GenerateWeApp { get; set; }
+
+        /// <summary>
+        /// keyword	STRING	非必填	搜索关键词
+        /// </summary>
+        [JsonProperty("keyword")]
+        public string Keyword { get; set; }
 
         /// <summary>
         /// 单人团多人团标志。true-多人团，false-单人团 默认false
