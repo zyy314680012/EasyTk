@@ -23,7 +23,7 @@ namespace EasyTk.ZheTaoKe.Response.Partial
         ///tao_id  "554832820990",       /*商品ID*/
         ///</summary>
         [JsonProperty("tao_id")]
-        public long? TaoId { get; set; }
+        public string TaoId { get; set; }
 
         ///<summary> 
         ///title  "储物箱整理抽屉式收纳柜",                   /*商品短标题*/
