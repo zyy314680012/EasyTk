@@ -2,31 +2,31 @@
 
 namespace EasyTk.DaTaoKe.Response.DouYin
 {
-    public  class GetOrderResponse
+    public  class OrderListResponse
     {
         /// <summary>
         /// ads_estimated_commission	Number	0	Live：直播间分销渠道预估佣金收入，单位分 2. Activity&Mix：预估推广费收入
         /// </summary>
         [JsonProperty("ads_estimated_commission")]
-        public long AdsEstimatedCommission { get; set; }
+        public double? AdsEstimatedCommission { get; set; }
 
         /// <summary>
         /// ads_real_commission	Number	0	Live：直播间分销渠道实际佣金收入，单位分 2. Activity&Mix：结算推广费收入
         /// </summary>
         [JsonProperty("ads_real_commission")]
-        public long AdsRealCommission { get; set; }
+        public double? AdsRealCommission { get; set; }
 
         /// <summary>
         /// commission_rate	Number	36.8	达人佣金率
         /// </summary>
         [JsonProperty("commission_rate")]
-        public double CommissionRate { get; set; }
+        public double? CommissionRate { get; set; }
 
         /// <summary>
         /// estimated_total_commission	Number	3.64	总佣金（预估），对应百应订单明细中的总佣金
         /// </summary>
         [JsonProperty("estimated_total_commission")]
-        public double EstimatedTotalCommission { get; set; }
+        public double? EstimatedTotalCommission { get; set; }
 
         /// <summary>
         /// external_info	String	_12345_0200	外部参数（转链时传入的自定义参数）
@@ -62,7 +62,7 @@ namespace EasyTk.DaTaoKe.Response.DouYin
         /// pay_goods_amount	Number	9.9	预估参与结算金额
         /// </summary>
         [JsonProperty("pay_goods_amount")]
-        public double PayGoodsAmount { get; set; }
+        public double? PayGoodsAmount { get; set; }
 
         /// <summary>
         /// pay_success_time	String	44648.6527430556	付款时间
@@ -86,7 +86,7 @@ namespace EasyTk.DaTaoKe.Response.DouYin
         /// real_commission	Number	0	达人实际佣金收入
         /// </summary>
         [JsonProperty("real_commission")]
-        public double RealCommission { get; set; }
+        public double? RealCommission { get; set; }
 
         /// <summary>
         /// product_name	String	9.9三卷包邮 抽绳式垃圾袋 家用手提式垃圾袋 加厚自动收口垃圾袋	商品名称
@@ -110,7 +110,7 @@ namespace EasyTk.DaTaoKe.Response.DouYin
         /// settled_goods_amount	Number	0	实际参与结算金额
         /// </summary>
         [JsonProperty("settled_goods_amount")]
-        public double SettledGoodsAmount { get; set; }
+        public double? SettledGoodsAmount { get; set; }
 
         /// <summary>
         /// shop_name	String	大鸣爆品供应链	商家名称
@@ -122,7 +122,7 @@ namespace EasyTk.DaTaoKe.Response.DouYin
         /// total_pay_amount	Number	9.8	订单支付金额
         /// </summary>
         [JsonProperty("total_pay_amount")]
-        public double TotalPayAmount { get; set; }
+        public double? TotalPayAmount { get; set; }
 
         /// <summary>
         /// update_time	String	2022-11-10 00:00:00	订单更新时间

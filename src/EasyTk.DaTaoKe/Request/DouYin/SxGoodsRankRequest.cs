@@ -4,7 +4,11 @@ using Newtonsoft.Json;
 
 namespace EasyTk.DaTaoKe.Request.DouYin
 {
-    public class GetGaoYongJingXuanRankRequest : BaseRequest<WrapperResponseDouYinList<GetGaoYongJingXuanRankResponse>>
+    /// <summary>
+    /// 抖音高佣精选榜单
+    /// https://www.dataoke.com/kfpt/api-d.html?id=115
+    /// </summary>
+    public class SxGoodsRankRequest : BaseRequest<WrapperResponseDouYinList<SxGoodsRankResponse>>
     {
         public override string GetApiUrl() => "https://openapi.dataoke.com/api/tiktok/tiktok-sx-goods-rank";
 

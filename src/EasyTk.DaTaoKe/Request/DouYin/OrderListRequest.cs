@@ -8,7 +8,7 @@ namespace EasyTk.DaTaoKe.Request.DouYin
     /// 抖客订单
     /// https://www.dataoke.com/kfpt/api-d.html?id=106
     /// </summary>
-    public class GetOrderRequest : BaseRequest<WrapperResponseDouYinOrderList<GetOrderResponse>>
+    public class OrderListRequest : BaseRequest<WrapperResponseDouYinOrderList<OrderListResponse>>
     {
         public override string GetApiUrl() => "https://openapiv2.dataoke.com/open-api/tiktok/order-list";
 

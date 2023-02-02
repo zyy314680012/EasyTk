@@ -2,7 +2,7 @@
 
 namespace EasyTk.DaTaoKe.Response.DouYin
 {
-    public class SearchResponse
+    public class MaterialsProductsSearchResponse
     {
         #region
 
@@ -16,7 +16,7 @@ namespace EasyTk.DaTaoKe.Response.DouYin
         /// cosRatio number 50 普通佣金比例（乘100，例如10%为10）
         /// </summary>
         [JsonProperty("cosRatio")]
-        public int? CosRatio { get; set; }
+        public double? CosRatio { get; set; }
 
         /// <summary>
         /// couponPrice number 0 券后价（单位：元）

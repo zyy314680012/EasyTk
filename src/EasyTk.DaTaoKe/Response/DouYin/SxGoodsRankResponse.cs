@@ -2,7 +2,7 @@
 
 namespace EasyTk.DaTaoKe.Response.DouYin
 {
-    public class GetGaoYongJingXuanRankResponse
+    public class SxGoodsRankResponse
     {
         #region
 
@@ -52,7 +52,7 @@ namespace EasyTk.DaTaoKe.Response.DouYin
         /// kolCosRatio number 20 达人佣金比例（x100%，如10即100%）
         /// </summary>
         [JsonProperty("kolCosRatio")]
-        public int? KolCosRatio { get; set; }
+        public double? KolCosRatio { get; set; }
 
         /// <summary>
         /// firstCid number 23112 一级类目ID
@@ -100,7 +100,7 @@ namespace EasyTk.DaTaoKe.Response.DouYin
         /// scoreRatio string 5421 所筛选的对应榜单指数，引流指数、利润指数、品质指数
         /// </summary>
         [JsonProperty("scoreRatio")]
-        public long? ScoreRatio { get; set; }
+        public double? ScoreRatio { get; set; }
 
         /// <summary>
         /// detailUrl string https://haohuo.jinritemai.com/views/product/item2?id=3531455712288976723\u0026pick_source=NAr9W5y 商品链接地址

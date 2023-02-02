@@ -2,7 +2,7 @@
 
 namespace EasyTk.DaTaoKe.Response.DouYin
 {
-    public class GetGaoYongJingXuanResponse
+    public class SxGoodsListResponse
     {
         #region
 
@@ -28,25 +28,25 @@ namespace EasyTk.DaTaoKe.Response.DouYin
         /// price number 19.9 商品原价（元）
         /// </summary>
         [JsonProperty("price")]
-        public double Price { get; set; }
+        public double? Price { get; set; }
 
         /// <summary>
         /// sxPrice number 15.5 到手价（元）
         /// </summary>
         [JsonProperty("sxPrice")]
-        public double SxPrice { get; set; }
+        public double? SxPrice { get; set; }
 
         /// <summary>
         /// kolCosFee number 3.50 达人佣金金额（元）
         /// </summary>
         [JsonProperty("kolCosFee")]
-        public double KolCosFee { get; set; }
+        public double? KolCosFee { get; set; }
 
         /// <summary>
         /// kolCosRatio number 20 达人佣金比例（x100%，如10即100%）
         /// </summary>
         [JsonProperty("kolCosRatio")]
-        public double KolCosRatio { get; set; }
+        public double? KolCosRatio { get; set; }
 
         /// <summary>
         /// firstCid number 23112 一级类目ID
