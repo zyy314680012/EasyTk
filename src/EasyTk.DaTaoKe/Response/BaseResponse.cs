@@ -54,7 +54,7 @@ namespace EasyTk.DaTaoKe.Response
         /// </summary>
         [JsonProperty("data")]
         public WrapperResponseListData Data { get; set; }
-        
+
         /// <summary>
         /// 列表
         /// </summary>
@@ -62,12 +62,90 @@ namespace EasyTk.DaTaoKe.Response
         {
             [JsonProperty("list")]
             public TResponse[] List { get; set; }
-            
+
             [JsonProperty("totalNum")]
             public long TotalNum { get; set; }
 
             [JsonProperty("pageId")]
             public string PageId { get; set; }
+        }
+    }
+
+    public class WrapperResponseDouYinList<TResponse> : BaseResponse
+    {
+        /// <summary>
+        /// 数据
+        /// </summary>
+        [JsonProperty("data")]
+        public WrapperResponseData Data { get; set; }
+
+        public class WrapperResponseData
+        {
+            [JsonProperty("list")]
+            public TResponse[] List { get; set; }
+        }
+    }
+
+    public class WrapperResponseDouYinTotal<TResponse> : BaseResponse
+    {
+        /// <summary>
+        /// 数据
+        /// </summary>
+        [JsonProperty("data")]
+        public WrapperResponseData Data { get; set; }
+
+        public class WrapperResponseData
+        {
+            [JsonProperty("list")]
+            public TResponse[] List { get; set; }
+
+            [JsonProperty("total")]
+            public long Total { get; set; }
+        }
+    }
+
+    public class WrapperResponseDouYinOrderList<TResponse> : BaseResponse
+    {
+        /// <summary>
+        /// 数据
+        /// </summary>
+        [JsonProperty("data")]
+        public WrapperResponseData Data { get; set; }
+
+        public class WrapperResponseData
+        {
+            [JsonProperty("list")]
+            public TResponse[] List { get; set; }
+
+            [JsonProperty("page")]
+            public long Page { get; set; }
+
+            [JsonProperty("total")]
+            public long Total { get; set; }
+        }
+    }
+
+    public class WrapperResponseDouYinPage<TResponse> : BaseResponse
+    {
+        /// <summary>
+        /// 数据
+        /// </summary>
+        [JsonProperty("data")]
+        public WrapperResponseData Data { get; set; }
+
+        public class WrapperResponseData
+        {
+            [JsonProperty("list")]
+            public TResponse[] List { get; set; }
+
+            [JsonProperty("page")]
+            public long Page { get; set; }
+
+            [JsonProperty("size")]
+            public long Size { get; set; }
+
+            [JsonProperty("total")]
+            public long Total { get; set; }
         }
     }
 }

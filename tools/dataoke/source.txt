@@ -1,0 +1,4 @@
+ has_shop_brand_tag
+string
+flase
+是否有品牌旗舰店标签（[品牌]黑标）
