@@ -113,5 +113,40 @@ namespace EasyTk.DaTaoKe.Test
             var resp = await Client.ExecuteAsync(req);
             var q = resp;
         }
+
+        [Fact]
+        public async Task TestDistributionLiveProductListRequestAsync()
+        {
+            var req = new DistributionLiveProductListRequest
+            {
+                AuthorBuyinId = "6961635340667240734",
+            };
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async Task TestOneYuanGoodsListRequestAsync()
+        {
+            var req = new OneYuanGoodsListRequest
+            {
+
+            };
+
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
+
+        [Fact]
+        public async Task TestOneFenGoodsListRequestAsync()
+        {
+            var req = new OneFenGoodsListRequest
+            {
+
+            };
+
+            var resp = await Client.ExecuteAsync(req);
+            var q = resp;
+        }
     }
 }
