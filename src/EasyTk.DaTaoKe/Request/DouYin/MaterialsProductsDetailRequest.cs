@@ -4,6 +4,10 @@ using Newtonsoft.Json;
 
 namespace EasyTk.DaTaoKe.Request.DouYin
 {
+    /// <summary>
+    /// 抖音商品详情
+    /// https://www.dataoke.com/kfpt/api-d.html?id=91
+    /// </summary>
     public class MaterialsProductsDetailRequest : BaseRequest<WrapperResponseDouYinTotal<MaterialsProductsDetailResponse>>
     {
         public override string GetApiUrl() => "https://openapiv2.dataoke.com/tiktok/tiktok-materials-products-details";

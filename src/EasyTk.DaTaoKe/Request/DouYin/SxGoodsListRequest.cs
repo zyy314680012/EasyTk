@@ -45,7 +45,7 @@ namespace EasyTk.DaTaoKe.Request.DouYin
         /// first_cate_ids String 否 筛选商品一级分类（360-食品饮料，345-居家百货，353-美妆个护，366-服饰内衣，371-鞋包配饰，380-生鲜果蔬，386-母婴童玩，392-数码家电，399-运动户外，405-宠物用品，408-医药保健，415-汽配摩托，419-图书音像，426-礼品文创
         /// </summary>
         [JsonProperty("first_cate_ids")]
-        public int? FirstCateIds { get; set; }
+        public string FirstCateIds { get; set; }
 
         /// <summary>
         /// price_start String 否 筛选价格区间-最小值（单位元）
